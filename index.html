@@ -1,0 +1,543 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0d0e12"><title>3PLUS | تصميم الصيانة والكنترول</title><style>
+:root{--gold:#f4c542;--bg:#0d0e12;--panel:#181a20;--line:#37332a;--text:#f6f1e5;--muted:#aaa9aa;--danger:#f06e73;--ok:#36bf8b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5}a{color:var(--gold)}.shell{max-width:1420px;margin:auto;min-height:100vh}.top{height:78px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;border-bottom:1px solid var(--line);background:#111318}.brand{font-weight:900;font-size:35px;color:var(--gold);letter-spacing:1px}.toptools{display:flex;align-items:center;gap:8px}.btn{background:var(--gold);border:1px solid var(--gold);color:#17140d;border-radius:10px;padding:11px 14px;font-weight:bold}.btn.alt{background:#22242b;color:var(--gold);border-color:#6b5930}.btn.red{background:#59272a;color:#fff;border-color:#a54649}.small{font-size:12px;color:var(--muted)}.preview[hidden],#cloudStatus[hidden]{display:none!important}.preview{background:#352a14;border-bottom:1px solid #795d24;color:#ffe4a0;padding:10px 20px;font-size:13px;text-align:center}.app{display:flex;min-height:calc(100vh - 120px)}.side{width:240px;flex-shrink:0;background:#13151a;border-left:1px solid var(--line);padding:18px 12px}.navbtn{display:flex;align-items:center;gap:9px;text-align:right;width:100%;background:transparent;color:#e5e1db;border:0;padding:14px;border-radius:11px;margin:4px 0}.navbtn.active{background:linear-gradient(90deg,#a37913,#f4c542);color:#17150e;font-weight:bold}.body{flex:1;min-width:0;padding:24px}.panel{background:var(--panel);border:1px solid #363840;border-radius:16px;padding:18px;margin-bottom:14px}.hero{background:linear-gradient(115deg,#493813,#191a20 65%);border:1px solid #78602a;padding:22px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;margin:16px 0}.hero h2{margin:0 0 10px;color:#ffe08b}.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.tile{background:linear-gradient(145deg,#29241b,#181a20);border:1px solid #77602b;color:#fbe0a0;border-radius:16px;padding:22px 16px;min-height:140px;text-align:right}.tile.red{border-color:#af494f;color:#ffaaaa}.tile .emoji{font-size:35px;display:block;margin-bottom:10px}.tile strong{font-size:21px}.tile p{font-size:12px;color:#bdb1a0}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.stat{background:#20232a;border:1px solid #383b44;border-radius:13px;padding:17px}.stat b{display:block;font-size:24px;color:var(--gold);margin-top:8px}.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0}.flex{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}h2{font-size:21px}h3{font-size:17px;color:var(--gold);margin:0 0 12px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:660px}th,td{text-align:right;padding:13px 10px;border-bottom:1px solid #373941;font-size:13px}th{color:#edca77}.status{display:inline-block;background:#30364b;color:#b9d8ff;padding:5px 9px;border-radius:8px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:6px}.field label{color:#f2d78e;font-size:13px}input,select,textarea{width:100%;min-width:0;background:#0f1117;border:1px solid #55545a;color:#fff;border-radius:9px;padding:12px}textarea{min-height:78px}dialog{background:#191b20;color:#fff;border:1px solid #917334;border-radius:16px;width:min(580px,94vw);max-height:88vh;overflow:auto;padding:22px}dialog::backdrop{background:#000b}.controlHeader{background:#201b12;border:1px solid #8a702a;padding:18px;border-radius:15px;margin-bottom:15px}.tag{font-size:11px;border-radius:6px;background:#664d16;padding:4px 9px;color:#ffe5ad}.switch{accent-color:#d7a52c;width:20px;height:20px}.perm{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-bottom:1px solid #383a3f}.colors{display:flex;gap:10px;flex-wrap:wrap}.swatch{width:38px;height:38px;border-radius:50%;border:3px solid #999;cursor:pointer}.swatch.selected{outline:2px solid #fff;outline-offset:3px}.hidden{display:none!important}.foot{text-align:center;color:#8e8c8e;font-size:12px;padding:22px}.control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.muted{color:var(--muted)}@media(max-width:720px){.top{padding:10px;height:68px}.brand{font-size:29px}.toptools .labelhide{display:none}.app{display:block}.side{position:fixed;right:0;top:68px;bottom:0;z-index:4;overflow:auto;transform:translateX(105%);transition:.2s;width:min(320px,85vw);box-shadow:-10px 0 25px #0008}.side.open{transform:translateX(0)}.body{padding:14px}.stats{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:1fr}.tile{min-height:110px;padding:16px}.fields,.control-grid{grid-template-columns:1fr}.hero{padding:15px}.hero h2{font-size:19px}#menu{display:inline-block!important}}@media(min-width:721px){#menu{display:none!important}}
+
+:root{--bg:#080e16;--panel:#111b27;--line:#253747;--gold:#ffc52f}
+body{background:linear-gradient(155deg,#07111c,#05090f 65%);padding-bottom:0}
+.top{background:#07111b;position:sticky;top:0;z-index:8;border-bottom:1px solid #27333e}
+.brand{font-size:31px;white-space:nowrap}
+.btn.alt{background:#0b1521;border-color:#59491e}
+.side{background:#09131e}
+.navbtn.active{background:linear-gradient(90deg,#a57810,#ffd04d)}
+.panel,.stat{background:#101b27;border-color:#293846}
+.tile{background:linear-gradient(140deg,#20202a,#0d1824);border-color:#ac872d;box-shadow:inset 0 1px 0 #e8ba3e44}
+.tile.red{border-color:#a94349;background:linear-gradient(145deg,#281c23,#101822)}
+.hero{display:none}
+.tiles .tile .emoji{display:inline-flex;float:right;margin:0 0 0 14px;width:56px;height:56px;align-items:center;justify-content:center;border:1px solid #b28a2c;border-radius:12px;background:#131922}
+.tiles .tile strong{display:block;padding-top:8px}
+.tiles .tile p{clear:both;padding-top:10px}
+#bottomNav{display:none}
+#back{display:none}
+.repaircards{display:grid;gap:10px}
+.repaircard{width:100%;text-align:right;background:#111e2b;color:#fff;border:1px solid #314253;border-radius:13px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.repaircard small{display:block;color:#a9b3be;margin-top:5px}
+.wizardsteps{display:flex;justify-content:space-around;margin:14px 0 24px;gap:8px}
+.wizardsteps span{padding:9px 8px;border-radius:30px;background:#182636;color:#a5afbb;font-size:12px}
+.wizardsteps .on{background:#ffca32;color:#15130a;font-weight:bold}
+.wizardcard{max-width:700px;margin:auto}
+.wizardcard .fields{grid-template-columns:1fr}
+.wizardcard .field{margin-bottom:10px}
+.wizardactions{display:flex;gap:10px;margin-top:22px}
+.wizardactions button{flex:1}
+.statuschoice{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:right;background:#11202d;border:1px solid #304453;color:#fff;border-radius:12px;padding:14px;margin:8px 0}
+.statuschoice.on{border:2px solid var(--gold);color:var(--gold)}
+@media(max-width:720px){
+ .top{height:66px;padding:8px 9px;gap:5px}
+ .toptools{gap:5px}
+ .top .btn{padding:8px 7px;font-size:11px}
+ .brand{font-size:26px}
+ #mode{display:none}
+ #back{display:inline-flex!important;align-items:center;justify-content:center;font-size:22px;min-width:34px}
+ .body{padding:14px 13px 90px;min-height:calc(100vh - 150px)}
+ .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .tile{min-height:126px;padding:12px 6px;text-align:center}
+ .tiles .tile .emoji{float:none;margin:0 auto 9px;width:44px;height:44px;font-size:25px}
+ .tiles .tile strong{font-size:13px;display:block;padding:0}
+ .tiles .tile p{display:none}
+ #bottomNav{position:fixed;display:flex;bottom:0;left:0;right:0;z-index:7;background:#08131f;border-top:1px solid #3a424a;padding:8px 3px max(8px,env(safe-area-inset-bottom));justify-content:space-around;gap:3px}
+ #bottomNav button{border:0;border-radius:10px;background:transparent;color:#aab6c3;font-size:10px;padding:8px 2px;flex:1}
+ #bottomNav button b{display:block;font-size:19px;margin-bottom:4px}
+ #bottomNav button.active{background:#3c3217;color:#ffd047}
+ .side{top:66px;bottom:65px}
+ .preview{font-size:10px;padding:6px}
+ .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .stat{padding:9px}
+ .stat b{font-size:18px}
+ .foot{display:none}
+ .top #logout{display:none}
+}
+
+/* Final approved visual alignment — black, midnight blue, gold */
+:root{--gold:#ffca34;--bg:#070d15;--panel:#101c2a;--line:#273747;--text:#f8f8f7;--muted:#9ca9b6}
+body{background:#070e18;color:var(--text)}.shell{max-width:1600px}
+.top{background:#060d16;border-bottom:1px solid #293746;box-shadow:0 4px 20px #0005}
+.brand{font-weight:900;color:var(--gold);letter-spacing:.3px}
+.side{background:#08121e;border-color:#263547}.body{background:linear-gradient(150deg,#07111d,#060b14)}
+.panel,.stat{background:#101b29;border:1px solid #263747}.tile{border-radius:12px;background:linear-gradient(135deg,#26221b,#0f1722);box-shadow:inset 0 1px 0 #fbd46d22;transition:transform .1s ease}
+.tile:active,.repaircard:active{transform:scale(.985)}
+.tile.red{background:linear-gradient(135deg,#2c1b20,#111720)}
+.homeStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0 20px}
+.homeStat{border:1px solid #253644;background:#101c2a;border-radius:10px;min-width:0;text-align:center;padding:14px 7px}
+.homeStat small{display:block;color:#c3cfdb;margin-top:8px;font-size:12px}
+.homeLatest{margin-top:16px}.homeLatest h3{color:white;margin:0}.homeLatest .flex{margin-bottom:12px}
+.latestItem{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:0;border-bottom:1px solid #2a3849;background:#101b28;color:#fff;text-align:right;padding:15px 10px}
+.latestItem:first-of-type{border-radius:10px 10px 0 0}.latestItem:last-of-type{border-radius:0 0 10px 10px}
+.latestItem b{font-size:12px;direction:ltr}.latestItem span{flex:1;font-size:13px}.latestItem small{display:block;color:#97aab8;margin-top:4px}
+.latestItem em{font-style:normal;color:#ffca34;font-size:12px}
+.wizardsteps{direction:rtl}.wizardsteps span{flex:1;text-align:center}
+.wizardcard .panel{padding:18px}.wizardcard .field label{color:#e2d7b6}
+#back{border-radius:10px}
+@media(max-width:720px){
+ .top{min-height:66px}.preview{font-size:10px;padding:7px 9px;line-height:1.5}
+ .tiles{gap:9px}.tiles .tile{min-height:122px;padding:10px 6px;border-radius:9px}
+ .tiles .tile strong{font-size:12px;line-height:1.4}.tiles .tile .emoji{font-size:24px;width:43px;height:43px}
+ .homeStats{gap:7px}.homeStat{padding:9px 3px}.homeStat small{font-size:10px}.homeLatest .btn{font-size:11px;padding:7px 9px}
+ .body{padding:18px 13px 100px}.side{top:66px;bottom:65px}
+ #bottomNav{box-shadow:0 -8px 26px #0006}
+ .wizardcard .panel{padding:13px}.wizardsteps{gap:4px}.wizardsteps span{font-size:10px;padding:9px 4px}
+}
+@media(min-width:721px){.homeStats{grid-template-columns:repeat(3,minmax(0,1fr))}.tiles .tile{min-height:155px}#back{display:inline-flex!important}#mode{display:inline-flex!important}}
+
+.controlReturn{display:flex;justify-content:flex-start;margin:0 0 14px}.controlReturn .btn{display:inline-flex;align-items:center;gap:7px}
+.featureNote{font-size:12px;color:#c6b778;margin:10px 0}.dueLate{border-right:3px solid #eab943;padding-right:12px}
+.printLink{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:9px;padding:8px 12px}
+.previewShopBar{background:#2b2515;border:1px dashed #aa8025;border-radius:12px;padding:12px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:720px){.controlReturn{margin-top:4px}}
+
+/* Supabase phase 1 login overlay; existing palette and layout preserved */
+#cloudGate{position:fixed;inset:0;z-index:50;background:#070e18;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+#cloudGate[hidden]{display:none!important}
+.cloudPanel{width:min(430px,100%);background:#101b29;border:1px solid #b99132;border-radius:16px;padding:25px;box-shadow:0 15px 55px #0008}
+.cloudPanel h1{color:var(--gold);text-align:center;font-size:34px;margin:0 0 8px}.cloudPanel p{color:#aebdca;font-size:13px;line-height:1.8}
+.cloudPanel label{display:block;margin:14px 0 6px;color:#e9cb7d}.cloudPanel .btn{width:100%;margin-top:17px}
+#cloudFeedback{margin-top:12px;line-height:1.6;white-space:pre-wrap;color:#ffb7ad;font-size:13px}
+#cloudStatus{font-size:11px;color:#a2d6bc;text-align:center;padding:6px}
+</style></head><body><section id="cloudGate"><div class="cloudPanel"><h1>3PLUS</h1><h3 style="text-align:center">تسجيل الدخول</h3><p>ادخل ببريد وكلمة مرور حسابك. ما تشاركش كلمة المرور مع حد.</p><form id="cloudLogin"><label for="cloudEmail">البريد الإلكتروني</label><input type="email" id="cloudEmail" autocomplete="username" required><label for="cloudPassword">كلمة المرور</label><input type="password" id="cloudPassword" autocomplete="current-password" required><button class="btn" type="submit" id="cloudLoginBtn">تسجيل الدخول</button></form><button class="btn alt" id="cloudSignupBtn" type="button" style="width:100%;margin-top:8px">إنشاء حساب جديد</button><div id="cloudFeedback" role="status">جاري تجهيز الاتصال...</div></div></section><div class="shell"><header class="top"><div class="toptools"><button class="btn alt" id="back" aria-label="رجوع">‹</button><button class="btn alt" id="menu" aria-label="فتح القائمة">☰</button><button class="btn alt" id="logout">⇥ <span class="labelhide">تسجيل الخروج</span></button></div><div class="brand" id="brand">3PLUS</div><div class="toptools"><button class="btn alt" id="language">العربية / EN</button><button class="btn alt" id="mode">⚙️ <span class="labelhide">3PLUS Control</span></button></div></header><div class="preview" id="testBanner" hidden>3PLUS · المشروع الجديد: لا تستخدمه لإدارة أموال حقيقية قبل اختبار الصلاحيات والتقفيل على بيانات تجريبية.</div><div id="cloudStatus" hidden>● جاري الاتصال بـ Supabase</div><div class="app"><aside class="side" id="side"></aside><main class="body" id="view"></main></div><nav id="bottomNav" aria-label="التنقل الرئيسي"></nav><div class="foot">3PLUS — البيانات المالية الأساسية متصلة بقاعدة Supabase، وبعض أدوات الكنترول ما زالت تجريبية</div></div><dialog id="modal"><h2 id="mt"></h2><div id="mb"></div><div class="actions"><button class="btn" id="save">حفظ</button><button class="btn alt" id="cancel">إلغاء</button></div><p id="merr" style="color:#ff9797"></p></dialog><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
+'use strict';const KEY='3plus-new-cloud-ui-v1';const statuses=['تم الاستلام','تحت الفحص','انتظار قطعة غيار','جاري الإصلاح','جاهز للاستلام','تم التسليم','مرفوض'];const defaults={repairs:[],losses:[],shops:[{id:1,name:'3PLUS - المحل الرئيسي',active:true,plan:'تجريبي'}],color:'#f4c542',template:'cards',order:['dashboard','repairs','losses','accounts','daily','monthly','records','settings'],permissions:{settings:true,staff:false,opening:false,closing:true,branding:false,whatsapp:false},accounts:{'درج المحل':0,'فودافون كاش':0,'إنستا باي':0,'الخزنة':0,'معايا شخصيًا':0},movements:[],featureByShop:{},selectedShopId:1,activity:[],previewShopId:1};let state;try{state=Object.assign(structuredClone(defaults),JSON.parse(localStorage.getItem(KEY)||'{}'))}catch{state=structuredClone(defaults)}state.shops ||= structuredClone(defaults.shops);
+
+// Browser-safe project credentials. Never place service_role / sb_secret in this file.
+const SUPABASE_URL='https://aqdkqtfhhxnsuqkakwat.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_z0r1ovXV4Fnx_PDBgsk5YA_UrJsCOoT';
+let cloud=null,cloudUser=null,cloudShop=null,cloudRole='owner',cloudReady=false,cloudBusy=false;let cloudAccounts=[],cloudMovements=[],accountsError="",cloudBalances=new Map(),balancesVerified=false,openingAllowed=false;
+function cloudMessage(msg){const n=document.getElementById('cloudFeedback');if(n)n.textContent=msg}
+function cloudError(e){return e?.message||String(e||'خطأ غير معروف')}
+function setCloudStatus(msg){const e=document.getElementById('cloudStatus');if(e)e.textContent=msg}
+function mapCloudRepair(r,f){return {uuid:r.id,id:r.repair_number,client:r.customer_name||'',phone:r.customer_phone||'',device:r.device_type||'',fault:r.fault||'',status:r.status||statuses[0],date:r.created_at?.slice(0,10)||'',price:Number(f?.customer_price||0),cost:Number(f?.parts_cost||0),labor:Number(f?.labor_cost||0),paid:0,paidAccount:'',notes:r.notes||''}}
+async function refreshCloudRepairs(){
+ if(!cloudReady)return;
+ const {data:repairs,error}=await cloud.from('repairs').select('id,repair_number,shop_id,customer_name,customer_phone,device_type,fault,status,notes,created_at,created_by,delivered_at').eq('shop_id',cloudShop.id).order('created_at',{ascending:false});
+ if(error)throw Error('تعذر قراءة الصيانات: '+cloudError(error));
+ const ids=(repairs||[]).map(r=>r.id);let finances=[];
+ if(ids.length && cloudRole!=='employee'){const fr=await cloud.from('repair_finances').select('repair_id,customer_price,parts_cost,labor_cost').in('repair_id',ids);if(fr.error)throw Error('الصيانات موجودة لكن لا يمكن قراءة التكاليف: '+cloudError(fr.error));finances=fr.data||[]}
+ const financeMap=new Map(finances.map(f=>[f.repair_id,f]));state.repairs=(repairs||[]).map(r=>mapCloudRepair(r,financeMap.get(r.id)));
+ const payIds=state.repairs.map(r=>r.uuid);
+ if(payIds.length&&cloudRole!=='employee'){const pay=await cloud.from('repair_payments').select('repair_id,amount').in('repair_id',payIds);const extra=await cloud.from('repair_payments_3plus').select('repair_id,amount').in('repair_id',payIds);if(pay.error||extra.error){setCloudStatus('⚠️ تعذر قراءة تحصيلات الصيانة من قاعدة البيانات');throw Error('تعذر التأكد من التحصيلات: '+cloudError(pay.error||extra.error))}else{const totals={};for(const p of [...(pay.data||[]),...(extra.data||[])])totals[p.repair_id]=(totals[p.repair_id]||0)+Number(p.amount||0);for(const r of state.repairs)r.paid=totals[r.uuid]||0}}
+ render();
+}
+async function refreshCloudAccounts(){
+ if(!cloudReady)return;
+ balancesVerified=false;cloudBalances=new Map();accountsError='';
+ const ar=await cloud.from('shop_accounts').select('id,shop_id,account_code,account_name').eq('shop_id',cloudShop.id).order('account_code');
+ if(ar.error){accountsError='تعذر قراءة الحسابات: '+cloudError(ar.error);cloudAccounts=[];cloudMovements=[];return}
+ cloudAccounts=ar.data||[];
+ const sr=await cloud.from('shop_settings').select('allow_opening_balance_edit').eq('shop_id',cloudShop.id).maybeSingle();
+ openingAllowed=!sr.error && sr.data?.allow_opening_balance_edit===true;
+ if(sr.error){accountsError='تعذر مراجعة إذن تعديل الرصيد: '+cloudError(sr.error)}
+ // Read the whole ledger, not only 30 movements. Never show a partial sum as a balance.
+ const all=[];const pageSize=500;
+ for(let offset=0;offset<100000;offset+=pageSize){
+  const {data,error}=await cloud.from('account_movements').select('id,account_id,movement_type,amount,description,created_at')
+   .eq('shop_id',cloudShop.id).order('created_at',{ascending:true}).order('id',{ascending:true})
+   .range(offset,offset+pageSize-1);
+  if(error){accountsError='تعذر التأكد من الأرصدة: '+cloudError(error);cloudMovements=[];return}
+  all.push(...(data||[]));
+  if((data||[]).length<pageSize)break;
+  if(offset+pageSize>=100000){accountsError='عدد الحركات كبير جدًا لمراجعته بهذه الواجهة';cloudMovements=[];return}
+ }
+ // Currency arithmetic as integer piasters to avoid floating-point accumulation errors.
+ for(const a of cloudAccounts)cloudBalances.set(a.id,0);
+ for(const m of all){
+  if(!cloudBalances.has(m.account_id)){accountsError='حركة مالية لحساب غير معروف';return}
+  const pennies=Math.round(Number(m.amount)*100);
+  if(!Number.isSafeInteger(pennies)){accountsError='قيمة حركة مالية غير صالحة';return}
+  cloudBalances.set(m.account_id,cloudBalances.get(m.account_id)+pennies);
+ }
+ balancesVerified=true;cloudMovements=all.slice(-30).reverse();
+}
+function getVerifiedBalance(accountId){
+ if(!balancesVerified||!cloudBalances.has(accountId))throw Error('الأرصدة مش مؤكدة. اضغط تحديث الحسابات الأول.');
+ return cloudBalances.get(accountId)/100;
+}
+async function submitCloudTransfer(fromId,toId,amount,note){
+ if(!cloudReady)throw Error('سجّل الدخول أولًا');
+ if(fromId===toId)throw Error('اختار حسابين مختلفين');
+ if(!Number.isFinite(amount)||amount<=0)throw Error('اكتب مبلغ أكبر من صفر');
+ if(!cloudAccounts.some(a=>a.id===fromId)||!cloudAccounts.some(a=>a.id===toId))throw Error('الحساب مش تابع للمحل الحالي');
+ const {error}=await cloud.rpc('transfer_shop_money_ui',{p_from:fromId,p_to:toId,p_amount:amount,p_note:note||'تحويل بين الحسابات'});
+ if(error)throw Error('فشل تسجيل التحويل على السيرفر: '+cloudError(error));
+ await refreshCloudAccounts();render();
+}
+async function submitCloudWithdrawal(accountId,amount,reason){
+  if(!cloudReady || !cloudShop?.id)throw Error('سجّل دخولك للمحل أولًا');
+  if(!cloudAccounts.some(a=>a.id===accountId && a.shop_id===cloudShop.id))throw Error('الحساب مش تابع للمحل الحالي');
+  if(!Number.isFinite(amount) || amount<=0 || amount>1000000000)throw Error('اكتب مبلغ سحب صحيح');
+  if(!reason?.trim())throw Error('لازم تكتب سبب السحب');
+  const {data,error}=await cloud.rpc('withdraw_shop_money',{
+    p_account_id:accountId,p_amount:amount,p_reason:reason.trim()
+  });
+  if(error)throw Error('السحب لم يتم: '+cloudError(error));
+  await refreshCloudAccounts();render();
+  return data;
+}
+function openCloudWithdrawal(){
+  if(!cloudAccounts.length)return alert('لا توجد حسابات متاحة');
+  const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+  modal('سحب فلوس من حساب',`<div class="fields"><div class="field"><label for="f_withdraw_account">الحساب اللي هتسحب منه</label><select id="f_withdraw_account">${opts}</select></div>${field('المبلغ بالجنيه','withdraw_amount','','number')}${field('سبب السحب','withdraw_reason','')}</div><p class="small">هيتخصم المبلغ من الحساب المحدد فقط لو السيرفر أكّد نجاح العملية، وهتظهر حركة السحب في سجل الحساب.</p>`,async()=>{
+    const accountId=$('f_withdraw_account').value;
+    const amountText=v('withdraw_amount'),reason=v('withdraw_reason');
+    if(!amountText || !Number.isFinite(Number(amountText)) || Number(amountText)<=0)throw Error('اكتب مبلغ السحب الصحيح');
+    if(!reason.trim())throw Error('اكتب سبب السحب');
+    const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تسجيل السحب...';
+    try{
+      await submitCloudWithdrawal(accountId,Number(amountText),reason);
+      $('modal').close();alert('تم تسجيل السحب على السيرفر بنجاح');
+    }catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+  });
+}
+
+async function submitOpeningBalance(accountId,newBalance,reason){
+ if(!openingAllowed)throw Error('صلاحية تعديل الرصيد الافتتاحي مقفولة من إعدادات المحل');
+ if(!cloudAccounts.some(a=>a.id===accountId))throw Error('الحساب غير تابع للمحل');
+ if(!Number.isFinite(newBalance)||newBalance<0||!Number.isSafeInteger(Math.round(newBalance*100))||Math.abs(newBalance*100-Math.round(newBalance*100))>0.000001)throw Error('اكتب رصيد صحيح');
+ if(!reason.trim())throw Error('اكتب سبب تعديل الرصيد');
+ getVerifiedBalance(accountId);
+ const {error}=await cloud.rpc('adjust_opening_balance',{
+  p_shop_id:cloudShop.id,p_account_id:accountId,p_new_balance:newBalance,p_reason:reason.trim()
+ });
+ if(error)throw Error('لم يتم تعديل الرصيد: '+cloudError(error));
+ await refreshCloudAccounts();render();
+}
+function openOpeningBalance(){
+ if(!balancesVerified)return alert('لازم نتأكد من الأرصدة الأول');
+ if(!openingAllowed)return alert('صلاحية تعديل الرصيد مقفولة من الكنترول');
+ const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+ modal('تعديل الرصيد الافتتاحي',`<div class="fields"><div class="field"><label>الحساب</label><select id="f_open_account">${opts}</select></div><div class="field"><label>الرصيد المسجل حاليًا</label><strong id="openingCurrent"></strong></div>${field('الرصيد الجديد بالجنيه','open_amount','','number')}${field('سبب التسوية (إجباري)','open_reason','')}</div><p class="small">التعديل هيحفظ فرق الرصيد كتسوية في Supabase باسم المستخدم، من غير مسح أي حركة قديمة. ما تستخدموش بدل تحصيل الصيانة.</p>`,async()=>{
+  const accountId=$('f_open_account').value,amountText=v('open_amount'),amount=Number(amountText),reason=v('open_reason');
+  if(!amountText||!Number.isFinite(amount)||amount<0||Math.abs(amount*100-Math.round(amount*100))>0.000001)throw Error('اكتب رصيد صحيح لحد خانتين عشريتين');
+  if(!reason.trim())throw Error('اكتب سبب التعديل');
+  const old=getVerifiedBalance(accountId);
+  if(!confirm(`تأكيد تسوية رصيد الحساب من ${fmt(old)} إلى ${fmt(amount)}؟`))return;
+  const btn=$('save');btn.disabled=true;$('merr').textContent='جاري حفظ التسوية...';
+  try{await submitOpeningBalance(accountId,amount,reason);$('modal').close();alert('تم تسجيل التسوية في Supabase')}
+  catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+ });
+ const sync=()=>{$('openingCurrent').textContent=fmt(getVerifiedBalance($('f_open_account').value))};
+ $('f_open_account').onchange=sync;sync();
+}
+function openZeroDrawer(){
+ if(!balancesVerified)return alert('تعذر التأكد من الأرصدة، اضغط تحديث الحسابات');
+ const drawer=cloudAccounts.find(a=>a.account_code==='cash');
+ if(!drawer)return alert('حساب درج المحل مش موجود');
+ const amount=getVerifiedBalance(drawer.id);
+ if(amount<=0)return alert('رصيد الدرج صفر أو سالب. مفيش رصيد موجب ننقله.');
+ const options=cloudAccounts.filter(a=>a.id!==drawer.id).map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+ modal('تصفير الدرج — نقل الرصيد',`<div class="panel"><strong>رصيد الدرج المسجل: ${fmt(amount)}</strong></div><div class="fields"><div class="field"><label>الفلوس هتروح لأنهي حساب؟</label><select id="f_zero_to">${options}</select></div>${field('سبب تصفير الدرج','zero_reason','تقفيل ونقل رصيد الدرج')}</div><p class="small">العملية بتحوّل كل الرصيد المسجل لحساب تاني وبتسيب سجل مالي واضح. لو الفلوس الفعلية مختلفة، لازم تعمل تسوية مصرح بيها الأول.</p>`,async()=>{
+  if(!balancesVerified)throw Error('حدّث الأرصدة الأول');
+  const current=getVerifiedBalance(drawer.id);
+  if(Math.round(current*100)!==Math.round(amount*100))throw Error('الرصيد اتغير. اقفل النافذة وحدّث الحسابات');
+  const to=$('f_zero_to').value,note=v('zero_reason');if(!note)throw Error('اكتب سبب التصفير');
+  if(!confirm(`هتنقل ${fmt(current)} من درج المحل للحساب المختار. تأكيد؟`))return;
+  const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تحويل رصيد الدرج...';
+  try{await submitCloudTransfer(drawer.id,to,current,note);$('modal').close();alert('تم تسجيل تحويل رصيد الدرج في Supabase')}
+  catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+ });
+}
+
+let dailyReport=null,monthlyReport=null,dailyError='',monthlyError='',reportsLoading={daily:false,monthly:false};
+let selectedReportMonth=(new Date()).toLocaleDateString('en-CA',{timeZone:'Africa/Cairo'}).slice(0,7);
+async function loadDailyReport(){
+ if(!cloudReady)return;
+ reportsLoading.daily=true;dailyError='';render();
+ try{const {data,error}=await cloud.rpc('cash_day_report_3plus',{p_shop_id:cloudShop.id});if(error)throw error;dailyReport=data;}
+ catch(e){dailyReport=null;dailyError=cloudError(e)}finally{reportsLoading.daily=false;render()}
+}
+async function loadMonthlyReport(){
+ if(!cloudReady)return;
+ reportsLoading.monthly=true;monthlyError='';render();
+ try{const {data,error}=await cloud.rpc('monthly_shop_report_3plus',{p_shop_id:cloudShop.id,p_month:selectedReportMonth+'-01'});if(error)throw error;monthlyReport=data;}
+ catch(e){monthlyReport=null;monthlyError=cloudError(e)}finally{reportsLoading.monthly=false;render()}
+}
+function dailyCloudView(){
+ if(reportsLoading.daily)return head('التقفيل اليومي')+'<div class="panel">جاري قراءة التقفيل من Supabase...</div>';
+ if(dailyError)return head('التقفيل اليومي')+`<div class="panel"><p style="color:#ff9797">تعذر تحميل التقفيل: ${esc(dailyError)}</p><p class="small">لا تعرض أي أرصدة تقديرية؛ شغّل ملف تحديث قاعدة البيانات أولًا.</p><button class="btn" id="reloadDaily">إعادة المحاولة</button></div>`;
+ if(!dailyReport)return head('التقفيل اليومي')+'<div class="panel"><button class="btn" id="reloadDaily">تحميل حسابات اليوم من Supabase</button></div>';
+ const d=dailyReport,cl=d.closed;
+ return head('التقفيل اليومي','يوم العمل '+esc(d.business_day)+' · من 3 صباحًا بتوقيت القاهرة')
+ +stats([['رصيد الدرج أول اليوم',fmt(d.opening_balance)],['تحصيلات اليوم في الدرج',fmt(d.receipts)],['رصيد الدرج آخر اليوم (المتوقع)',fmt(d.expected_balance)],['عدد حركات الدرج',d.movement_count+' حركة']])
+ +`<div class="panel" style="margin-top:16px"><h3>مطابقة رصيد الدرج</h3>${cl?`<p>تم اعتماد التقفيل: ${esc((cl.closed_at||'').replace('T',' ').slice(0,19))}</p><p>النقد الفعلي: <strong>${fmt(cl.actual_balance)}</strong></p><p>فرق العجز أو الزيادة: <strong>${fmt(cl.difference)}</strong></p><p class="small">التقفيل محفوظ، ولا يمسح الفلوس ولا سجل الحركات.</p>`:`<p>الرصيد المتوقع شامل التحويلات والسحب والمصاريف والتسويات؛ التحصيلات تشمل حركات القبض فقط.</p><div class="field"><label>النقد اللي عدّيته فعلًا في الدرج بالجنيه</label><input type="number" min="0" step="0.01" id="cashActual" placeholder="اكتب المبلغ الفعلي"></div><p class="small">اعتماد التقفيل بيسجل الفرق فقط، ومش بيصفّر الدرج أو يعدّل الرصيد.</p><div class="actions"><button class="btn" id="closeCashDay">اعتماد تقفيل اليوم</button></div>`}<div class="actions"><button class="btn alt" id="reloadDaily">تحديث التقرير</button></div></div>`;
+}
+function monthlyCloudView(){
+ if(reportsLoading.monthly)return head('الأرباح الشهرية')+'<div class="panel">جاري حساب الأرباح من Supabase...</div>';
+ const picker=`<div class="panel"><div class="field"><label>اختار الشهر</label><input type="month" id="reportMonth" value="${esc(selectedReportMonth)}"></div><div class="actions"><button class="btn alt" id="reloadMonthly">تحديث التقرير</button></div></div>`;
+ if(monthlyError)return head('الأرباح الشهرية')+picker+`<div class="panel" style="color:#ff9797">تعذر حساب الأرباح: ${esc(monthlyError)}. لازم تشغيل تحديث قاعدة البيانات.</div>`;
+ if(!monthlyReport)return head('الأرباح الشهرية')+picker;
+ const m=monthlyReport;
+ return head('الأرباح الشهرية','حسب تاريخ تسليم الجهاز للعميل')+picker
+ +stats([['عدد الصيانات المسلّمة',m.delivered_count+' جهاز'],['إيراد الصيانات المسلّمة',fmt(m.sales)],['تكلفة القطع والشغل',fmt(m.costs)],['المصاريف المسجلة',fmt(m.expenses)],['الخسائر المسجلة',fmt(m.losses)],['صافي الربح',fmt(m.net_profit)]])
+ +`<div class="panel" style="margin-top:14px"><p class="small">كل صيانة تم تسليمها تُحسب مرة واحدة في شهر التسليم. التحويلات والسحب والتسويات مش إيراد أو ربح.</p>${Number(m.legacy_undated_count)>0?`<p style="color:#ffd486">تنبيه: فيه ${esc(m.legacy_undated_count)} صيانة قديمة حالتها تم التسليم لكن من غير تاريخ تسليم موثق، ومش هنخمن شهرها.</p>`:''}</div>`;
+}
+async function submitCloseCashDay(){
+ if(!dailyReport||dailyReport.closed)throw Error('اليوم مقفول بالفعل');
+ const raw=$('cashActual')?.value;if(raw===''||raw==null)throw Error('اكتب الفلوس اللي عدّيتها');
+ const actual=Number(raw);if(!Number.isFinite(actual)||actual<0||Math.abs(actual*100-Math.round(actual*100))>0.000001)throw Error('مبلغ غير صحيح');
+ if(!confirm(`تأكيد اعتماد التقفيل: رصيد الدرج الفعلي ${fmt(actual)}، والمتوقع ${fmt(dailyReport.expected_balance)}؟`))return;
+ const btn=$('closeCashDay');btn.disabled=true;
+ try{const {error}=await cloud.rpc('close_cash_day_3plus',{p_shop_id:cloudShop.id,p_actual_balance:actual});if(error)throw error;await loadDailyReport();alert('تم اعتماد تقفيل اليوم وحفظ المطابقة في Supabase')}
+ catch(e){alert('تعذر اعتماد التقفيل: '+cloudError(e));btn.disabled=false}
+}
+
+const financialRequestIds={};
+function moneyValid(x){return Number.isFinite(x)&&x>0&&x<=1000000000&&Math.abs(x*100-Math.round(x*100))<0.000001}
+async function submitRepairCollection(repair,accountId,amount,note,requestId){
+ const uuid=requireCloudUUID(repair);
+ if(!moneyValid(amount))throw Error('المبلغ مش صحيح');
+ if(!cloudAccounts.some(a=>a.id===accountId))throw Error('اختار حساب تابع للمحل');
+ const current=state.repairs.find(x=>x.uuid===uuid);if(!current)throw Error('الصيانة لم تظهر بعد الحفظ');
+ if(amount>Math.round((Number(current.price)-Number(current.paid))*100)/100)throw Error('المبلغ أكبر من باقي الصيانة');
+ const {error}=await cloud.rpc('record_3plus_payment',{p_request_id:requestId,p_repair_id:uuid,p_account_id:accountId,p_amount:amount,p_note:note});
+ if(error)throw Error('التحصيل لم يتأكد من السيرفر: '+cloudError(error));
+ await refreshCloudAccounts();await refreshCloudRepairs();
+}
+function openRepairCollection(){
+ const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return alert('الصيانة غير موجودة');
+ const remaining=Math.max(0,Math.round((Number(r.price)-Number(r.paid))*100)/100);
+ if(remaining<=0)return alert('الصيانة دي مسددّة بالكامل');
+ const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+ let requestId=crypto.randomUUID();
+ modal('تحصيل صيانة #'+r.id,`<div class="panel">المتبقي على العميل: <strong>${fmt(remaining)}</strong></div><div class="fields"><div class="field"><label>الحساب اللي استلم الفلوس</label><select id="collectAccount">${opts}</select></div>${field('المبلغ','collectAmount',remaining,'number')}${field('البيان','collectNote','تحصيل صيانة')}</div>`,async()=>{
+  const accountId=$('collectAccount').value,amount=Number(v('collectAmount')),note=v('collectNote');
+  const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تسجيل التحصيل...';
+  try{await submitRepairCollection(r,accountId,amount,note,requestId);$('modal').close();alert('التحصيل اتحفظ على السيرفر')}catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+ });
+}
+async function submitCashOut(kind,accountId,amount,reason,requestId){
+ if(!moneyValid(amount)||!reason.trim())throw Error('اكتب مبلغ وسبب صحيحين');
+ if(!cloudAccounts.some(a=>a.id===accountId))throw Error('الحساب غير تابع للمحل');
+ const {error}=await cloud.rpc('record_3plus_cash_out',{p_request_id:requestId,p_account_id:accountId,p_kind:kind,p_amount:amount,p_reason:reason});
+ if(error)throw Error('العملية لم تتأكد من السيرفر: '+cloudError(error));
+ await refreshCloudAccounts();await refreshCloudLosses();render();
+}
+let cloudLosses=[],lossesError='';
+async function refreshCloudLosses(){
+ if(!cloudReady)return;
+ const {data,error}=await cloud.from('cash_out_3plus').select('id,kind,amount,reason,created_at,account_id').eq('shop_id',cloudShop.id).eq('kind','loss').order('created_at',{ascending:false}).limit(100);
+ lossesError=error?cloudError(error):'';cloudLosses=data||[];
+}
+function cloudLossesView(){
+ const names=new Map(cloudAccounts.map(a=>[a.id,a.account_name]));
+ return head('مرتجع أو خسارة')+`<div class="actions"><button class="btn red" id="newLoss">+ تسجيل خسارة أو مرتجع مالي</button></div><div class="panel">${lossesError?`<p style="color:#ffaaaa">${esc(lossesError)}</p>`:''}<div class="tablewrap"><table><tr><th>السبب</th><th>الحساب</th><th>المبلغ</th><th>التاريخ</th></tr>${cloudLosses.map(x=>`<tr><td>${esc(x.reason)}</td><td>${esc(names.get(x.account_id)||'')}</td><td>${fmt(x.amount)}</td><td>${esc(x.created_at?.slice(0,16)||'')}</td></tr>`).join('')||'<tr><td colspan="4">لا توجد خسائر مسجلة</td></tr>'}</table></div></div>`;
+}
+function openCashOut(kind='expense'){
+ const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+ const label=kind==='loss'?'خسارة أو مرتجع مالي':'مصروف';
+ let requestId=crypto.randomUUID();
+ modal('تسجيل '+label,`<div class="fields"><div class="field"><label>الحساب اللي خرجت منه الفلوس</label><select id="outAccount">${opts}</select></div>${field('المبلغ','outAmount','','number')}${field('السبب','outReason')}</div><p class="small">العملية هتخصم من الحساب وتتسجل على السيرفر. المرتجع هنا رد فلوس، ومش بيغيّر بيانات الصيانة تلقائيًا.</p>`,async()=>{
+  const accountId=$('outAccount').value,amount=Number(v('outAmount')),reason=v('outReason');
+  const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تسجيل العملية...';
+  try{await submitCashOut(kind,accountId,amount,reason,requestId);$('modal').close();alert('العملية اتحفظت في Supabase')}catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+ });
+}
+function cloudAccountsView(){
+ const names=new Map(cloudAccounts.map(a=>[a.id,a.account_name]));
+ return head('الدرج والحسابات')+`<div class="panel"><h3>حسابات المحل</h3>${accountsError?`<p style="color:#ffaaaa">${esc(accountsError)}</p>`:''}${cloudAccounts.map(a=>`<div class="perm"><strong>${esc(a.account_name)}</strong><span>${balancesVerified?`<strong style="color:var(--gold)">${fmt(getVerifiedBalance(a.id))}</strong>`:'<small>الرصيد غير مؤكد</small>'}</span></div>`).join('')||'<p>لا توجد حسابات لهذا المحل</p>'}<div class="actions"><button class="btn" id="cloudTransfer" ${!balancesVerified||cloudAccounts.length<2?'disabled':''}>⇄ تحويل بين الحسابات</button><button class="btn alt" id="cloudWithdraw" ${!balancesVerified?'disabled':''}>− سحب فلوس</button><button class="btn alt" id="openingBalance" ${!openingAllowed||!balancesVerified?'disabled':''}>✎ تعديل الرصيد الافتتاحي</button><button class="btn alt" id="zeroDrawer" ${!balancesVerified?'disabled':''}>تصفير الدرج</button><button class="btn alt" id="newExpense" ${!balancesVerified?'disabled':''}>− مصروف</button><button class="btn alt" id="reloadAccounts">تحديث الحسابات</button></div>${!openingAllowed?'<p class="small">تعديل الرصيد الافتتاحي غير مسموح به حاليًا إلا بعد تفعيله من الكنترول.</p>':''}</div><div class="panel"><h3>آخر الحركات المسجلة على السيرفر</h3>${cloudMovements.map(m=>`<div class="perm"><span>${esc(names.get(m.account_id)||'حساب')} — ${esc(m.movement_type)}<br><small>${esc(m.description||'')} · ${esc((m.created_at||'').slice(0,16).replace('T',' '))}</small></span><strong>${fmt(m.amount)}</strong></div>`).join('')||'<p class="muted">لا توجد حركات ظاهرة</p>'}</div>`;
+}
+function openCloudTransfer(){
+ if(cloudAccounts.length<2)return alert('لا يوجد حسابان متاحان');
+ const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}">${esc(a.account_name)}</option>`).join('');
+ modal('تحويل بين الحسابات',`<div class="fields"><div class="field"><label>من حساب</label><select id="f_from">${opts}</select></div><div class="field"><label>إلى حساب</label><select id="f_to">${opts}</select></div>${field('المبلغ بالجنيه','amount','','number')}${field('البيان (اختياري)','note','تحويل بين الحسابات')}</div><p class="small">التحويل الحقيقي لا يتم إلا عند نجاح تسجيله في Supabase.</p>`,async()=>{
+  const from=$('f_from').value,to=$('f_to').value,amount=Number(v('amount')),note=v('note');
+  const saveBtn=$('save');saveBtn.disabled=true;$('merr').textContent='جاري تسجيل التحويل...';
+  try{await submitCloudTransfer(from,to,amount,note);$('modal').close();alert('تم تسجيل التحويل بنجاح على السيرفر')}catch(e){$('merr').textContent=cloudError(e)}finally{saveBtn.disabled=false}
+ });
+}
+async function startCloud(){
+ try{
+  if(!window.supabase?.createClient)throw Error('مكتبة Supabase لم تُحمّل. تأكد من الإنترنت ثم حدّث الصفحة.');
+  cloud=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const {data,error}=await cloud.auth.getSession();if(error)throw error;
+  if(data?.session){await enterCloud(data.session.user)}else cloudMessage('سجّل بحساب الأدمن الموجود في Supabase.');
+ }catch(e){cloudMessage(cloudError(e))}
+}
+async function enterCloud(user){
+ cloudUser=user;cloudMessage('جاري التأكد من المحل والصلاحيات...');
+ try{
+  const {data:members,error:me}=await cloud.from('shop_members').select('shop_id,role').eq('user_id',user.id).eq('active',true).limit(1);if(me)throw me; const {data,error}=members?.length?await cloud.from('shops').select('id,name,owner_id').eq('id',members[0].shop_id).limit(1):{data:[],error:null};
+  if(error)throw Error('لا يمكن قراءة المحل: '+cloudError(error));
+  if(!data?.length){const name=prompt('أول دخول: اكتب اسم المحل لإنشائه (لو موظف، خلي المالك يضيفك أولًا)');if(!name)throw Error('لا يوجد محل مرتبط بالحساب.');const created=await cloud.rpc('create_my_shop',{p_name:name});if(created.error)throw created.error;return enterCloud(user);}
+  cloudShop=data[0];cloudRole=members?.[0]?.role||'owner';cloudReady=true;
+  await refreshCloudManagement();await refreshCloudRepairs();if(cloudRole!=='employee'){await refreshCloudAccounts();await refreshCloudLosses();}document.getElementById('cloudGate').hidden=true;
+  setCloudStatus('● متصل — '+cloudShop.name);
+ }catch(e){cloudReady=false;cloudMessage(cloudError(e)+'\nلم يتم فتح بيانات أي محل.');await cloud.auth.signOut()}
+}
+function requireCloudUUID(r){
+ if(!cloudReady || !cloudShop?.id)throw Error('تعذر التأكد من اتصال المحل. أعد تسجيل الدخول.');
+ if(!r?.uuid || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(r.uuid)){
+  throw Error('الصيانة دي مش مرتبطة بمعرّف سحابي سليم. حدّث الصفحة واختار الصيانة من جديد.');
+ }
+ return r.uuid;
+}
+async function cloudAddRepair(d){
+ if(!cloudReady)throw Error('مش متصل بـ Supabase');
+ const {data:r,error}=await cloud.rpc('save_repair_3plus',{p_repair_id:null,p_shop_id:cloudShop.id,p_client:d.client,p_phone:d.phone,p_device:d.device,p_fault:d.fault,p_status:d.status,p_price:d.price,p_cost:d.cost,p_labor:d.labor,p_notes:d.notes||''});
+ if(error)throw Error('حفظ الصيانة فشل: '+cloudError(error));
+ await refreshCloudRepairs();
+ if(d.paid>0){const acc=cloudAccounts.find(a=>a.account_name===d.paidAccount)||cloudAccounts.find(a=>a.account_code==='cash');if(!acc)throw Error('الصيانة اتحفظت لكن حساب العربون مش موجود. متكررهاش');try{await submitRepairCollection({uuid:r.id},acc.id,d.paid,'عربون استلام الجهاز',crypto.randomUUID())}catch(e){throw Error('الصيانة رقم '+r.repair_number+' اتحفظت، لكن العربون لم يتأكد: '+cloudError(e)+'. متعيدش إضافة الصيانة.')}}
+ return r;
+}
+async function cloudUpdateRepair(r,d){
+ const uuid=requireCloudUUID(r);
+ const {error}=await cloud.rpc('save_repair_3plus',{p_repair_id:uuid,p_shop_id:cloudShop.id,p_client:d.client,p_phone:d.phone,p_device:d.device,p_fault:d.fault,p_status:d.status,p_price:d.price,p_cost:d.cost,p_labor:d.labor,p_notes:r.notes||''});
+ if(error)throw Error('تعديل الصيانة فشل: '+cloudError(error));
+ await refreshCloudRepairs();
+}
+
+state.featureByShop ||= {};
+state.activity ||= [];
+state.selectedShopId ||= 1;
+state.previewShopId ||= 1;
+let page='home',control=false,dlgSave=null,historyStack=[],wizardStep=0,wizardData={},selectedRepair=null;
+let shopPreview=false;
+const FEATURES=[['receipts','طباعة الإيصالات','إيصالات استلام وتسليم وطباعة من تفاصيل الصيانة'],['dues','تنبيهات المستحقات','عرض العملاء اللي عليهم باقي مع رسالة واتساب جاهزة']];
+function shopFeatures(id=1){const key=String(id);if(!state.featureByShop[key])state.featureByShop[key]={receipts:false,dues:false};return state.featureByShop[key]}
+function featureEnabled(key,id=1){return !!shopFeatures(id)[key]}
+function activityLog(action,detail=''){state.activity.unshift({id:Date.now()+Math.random(),action,detail,by:'مدير المعاينة',at:new Date().toLocaleString('ar-EG',{timeZone:'Africa/Cairo'})});state.activity=state.activity.slice(0,200)}
+function returnToShop(){control=false;shopPreview=false;historyStack=[];page='home';$('side').classList.remove('open');render()}
+function shopSelector(){return `<div class="field"><label>اختار المحل للتحكم في مميزاته</label><select id="shopFeatureSelect">${state.shops.map(x=>`<option value="${x.id}" ${+state.selectedShopId===+x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div>`}
+function shopPreviewPage(){const s=state.shops.find(x=>+x.id===+state.previewShopId)||state.shops[0],f=shopFeatures(s.id);return `<div class="previewShopBar"><strong>👁️ معاينة فقط: ${esc(s.name)}</strong><span class="small">لا تغيّر بيانات أو صلاحيات حقيقية</span></div><div class="tiles"><div class="tile"><span class="emoji">📊</span><strong>لوحة التحكم</strong></div><div class="tile"><span class="emoji">🔧</span><strong>صيانة</strong></div><div class="tile red"><span class="emoji">↩️</span><strong>مرتجع أو خسارة</strong></div></div><div class="panel" style="margin-top:16px"><h3>الأقسام اللي هتظهر للعميل</h3><p>الصيانة — الدرج والحسابات — التقفيل اليومي — الأرباح والتقارير حسب صلاحيات المحل</p><p>طباعة الإيصالات: <strong>${f.receipts?'مفعّلة':'غير مفعّلة'}</strong></p><p>تنبيهات المستحقات: <strong>${f.dues?'مفعّلة':'غير مفعّلة'}</strong></p><p class="small">معاينة للشكل والمميزات فقط. عزل بيانات المحلات الحقيقي يحتاج Supabase وصلاحيات على السيرفر.</p></div>`}
+function printReceipt(kind,r){
+ if(!featureEnabled('receipts'))return alert('ميزة طباعة الإيصالات غير مفعلة لهذا المحل');
+ const el=window.open('','_blank','width=550,height=750');if(!el)return alert('المتصفح منع النافذة الجديدة؛ اسمح بالنوافذ المنبثقة للطباعة');
+ const d=new Date().toLocaleString('ar-EG',{timeZone:'Africa/Cairo'}),balance=Math.max(0,(+r.price||0)-(+r.paid||0));
+ el.document.write(`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>إيصال ${esc(kind)} - ${esc(r.id)}</title><style>body{font-family:Tahoma,Arial,sans-serif;max-width:420px;margin:30px auto;color:#161616;padding:15px}h1{text-align:center}h3{text-align:center}table{width:100%;border-collapse:collapse}td{padding:9px;border-bottom:1px dashed #777}p{line-height:1.7}.bar{border-top:2px solid #222;margin-top:20px;padding-top:10px;text-align:center}button{padding:12px 18px;border:0;background:#e8bf43;cursor:pointer}@media print{button{display:none}body{margin:0}}</style></head><body><h1>3PLUS</h1><h3>إيصال ${esc(kind)} جهاز صيانة</h3><table><tr><td>رقم الصيانة</td><td>#${esc(r.id)}</td></tr><tr><td>التاريخ</td><td>${esc(d)}</td></tr><tr><td>العميل</td><td>${esc(r.client)}</td></tr><tr><td>رقم الهاتف</td><td>${esc(r.phone)}</td></tr><tr><td>الجهاز</td><td>${esc(r.device)}</td></tr><tr><td>العطل</td><td>${esc(r.fault)}</td></tr><tr><td>الحالة</td><td>${esc(r.status)}</td></tr><tr><td>سعر الصيانة</td><td>${fmt(r.price)}</td></tr><tr><td>المقبوض</td><td>${fmt(r.paid)}</td></tr><tr><td>المتبقي</td><td>${fmt(balance)}</td></tr><tr><td>الضمان</td><td>${esc(r.warranty||'حسب اتفاق المحل')}</td></tr></table><p class="bar">يُرجى الاحتفاظ بالإيصال عند الاستلام والتسليم.</p><button onclick="window.print()">🖨️ طباعة</button></body></html>`);el.document.close();
+ activityLog('طباعة إيصال '+kind,'صيانة #'+r.id);persist()
+}
+const $=id=>document.getElementById(id),fmt=x=>(+x||0).toLocaleString('ar-EG')+' ج',esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));const persist=()=>{localStorage.setItem(KEY,JSON.stringify({...state,repairs:[]}));render()};function navItems(){return control?[['control','لوحة المالك','🛡️'],['shops','إدارة المحلات','🏬'],['users','المستخدمون والصلاحيات','👥'],['theme','الألوان والقوالب','🎨'],['order','ترتيب الأقسام','↕️'],['subscriptions','الاشتراكات','💳'],['updates','التحديثات والدعم','🔐'],['features','إدارة المميزات','🎛️'],['clientPreview','معاينة برنامج العميل','👁️'],['activity','سجل الموظفين','🕒']]:[['home','الرئيسية','🏠'],['dashboard','لوحة التحكم','📊'],['repairs','صيانة','🔧'],['losses','مرتجع أو خسارة','↩️'],['accounts','الدرج والحسابات','💰'],['daily','التقفيل اليومي','🗓️'],['monthly','الأرباح الشهرية','📈'],['records','سجل الصيانات','📋'],...(featureEnabled('dues')?[['dues','تنبيهات المستحقات','🔔']]:[]),['settings','الإعدادات','⚙️'],['support','الدعم الفني','🎧']]};function go(p){if(cloudRole==='employee'&&['accounts','daily','monthly','losses','control','shops','users','subscriptions'].includes(p))return alert('القسم مش متاح للموظف');if(p!==page)historyStack.push({page,control});page=p;$('side').classList.remove('open');render();if(cloudReady&&p==='daily')loadDailyReport();if(cloudReady&&p==='monthly')loadMonthlyReport()}
+function switchControl(){historyStack.push({page,control});control=!control;page=control?'control':'home';render()}
+function back(){if(page==='repairNew'&&wizardStep>0){wizardStep--;render();return}const prev=historyStack.pop();if(prev){page=prev.page;control=prev.control}else{page=control?'control':'home'}render()}
+function wizardField(label,id,type='text',placeholder=''){return `<div class="field"><label>${label}</label><input id="w_${id}" type="${type}" placeholder="${placeholder}" value="${esc(wizardData[id]||'')}"></div>`}
+function wizardView(){
+ const labels=['بيانات الجهاز','بيانات العميل','تفاصيل العطل'];
+ let form=wizardStep===0?wizardField('نوع الجهاز *','device','text','مثال: iPhone 13')+wizardField('موديل الجهاز','model','text','اختياري'):
+ wizardStep===1?wizardField('اسم العميل *','client')+wizardField('رقم الهاتف *','phone','tel')+`<div class="field"><label>طريقة التواصل</label><select id="w_contact"><option>واتساب</option><option>اتصال</option></select></div>`:
+ wizardField('وصف العطل *','fault')+`<div class="field"><label>حالة الجهاز عند الاستلام</label><select id="w_condition"><option>سليم</option><option>به خدوش</option><option>لا يعمل</option><option>شاشة مكسورة</option></select></div>`+wizardField('سعر الصيانة للعميل *','price','number')+wizardField('تكلفة الجملة / قطعة الغيار *','cost','number')+wizardField('تكلفة الشغل الإضافية','labor','number')+wizardField('العربون / المقبوض','paid','number')+`<div class="field"><label>استلام العربون في حساب</label><select id="w_paidAccount"><option>درج المحل</option><option>فودافون كاش</option><option>إنستا باي</option><option>الخزنة</option><option>معايا شخصيًا</option></select></div><div class="field"><label>حالة الصيانة</label><select id="w_status">${statuses.map(k=>`<option>${k}</option>`).join('')}</select></div>`;
+ return `<div class="wizardcard">${head('إضافة صيانة جديدة','خطوة '+(wizardStep+1)+' من 3')}<div class="wizardsteps">${labels.map((x,i)=>`<span class="${i===wizardStep?'on':''}">${i+1} · ${x}</span>`).join('')}</div><div class="panel"><div class="fields">${form}</div><div class="wizardactions"><button class="btn alt" id="wizardBack">السابق</button><button class="btn" id="wizardNext">${wizardStep===2?'✓ حفظ الصيانة':'التالي ←'}</button></div></div></div>`;
+}
+function saveWizardFields(){document.querySelectorAll('[id^="w_"]').forEach(el=>wizardData[el.id.slice(2)]=el.value)}
+function profit(r){return (+r.price||0)-(+r.cost||0)-(+r.labor||0)}
+function repairDetail(){const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return '<p>الصيانة غير موجودة</p>';return head('تفاصيل الصيانة #'+r.id)+`<div class="panel"><div class="flex"><h3>${esc(r.device)}</h3><span class="status">${esc(r.status)}</span></div><p>العميل: ${esc(r.client)}</p><p>الهاتف: ${esc(r.phone)}</p><p>العطل: ${esc(r.fault)}</p><p>سعر الصيانة للعميل: ${fmt(r.price)}</p><p>تكلفة الجملة / القطعة: ${fmt(r.cost||0)}</p><p>تكلفة الشغل الإضافية: ${fmt(r.labor||0)}</p><p>الربح المتوقع: <strong>${fmt(profit(r))}</strong></p><p>العربون: ${fmt(r.paid)} ${r.paidAccount?' — '+esc(r.paidAccount):''}</p><p>المتبقي: ${fmt((+r.price||0)-(+r.paid||0))}</p><div class="actions"><button class="btn" id="collectRepair" >+ تحصيل دفعة</button><button class="btn" id="changeStatus">تغيير الحالة</button><button class="btn alt" id="editExisting">تعديل البيانات</button><button class="btn alt" id="waCustomer">رسالة واتساب</button>${featureEnabled('receipts')?`<button class="btn alt" id="receiptIn">إيصال استلام</button><button class="btn alt" id="receiptOut">إيصال تسليم</button>`:''}</div></div>`}
+function statusView(){const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return '';return head('تغيير حالة الصيانة #'+r.id)+`<div class="panel">${statuses.map((s,i)=>`<button class="statuschoice ${r.status===s?'on':''}" data-status="${i}"><span>${esc(s)}</span><span>${r.status===s?'✓':'○'}</span></button>`).join('')}</div>`}
+;function render(){document.documentElement.style.setProperty('--gold',state.color);$('side').innerHTML=`<div class="brand" style="font-size:25px;text-align:center">${control?'3PLUS Control':'3PLUS'}</div>${navItems().filter(x=>control||x[0]!=='settings'||state.permissions.settings).map(([id,label,ico])=>`<button class="navbtn ${page===id?'active':''}" data-page="${id}"><span>${ico}</span>${label}</button>`).join('')}`;document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));$('view').innerHTML=control?`<div class="controlReturn"><button class="btn alt" id="returnShop">↩ رجوع</button></div>`+ownerView():shopView();
+ const items=control?[['control','الرئيسية','⌂'],['shops','المحلات','▣'],['users','المستخدمون','♙'],['theme','التخصيص','◈'],['features','المميزات','⚙']]:[['home','الرئيسية','⌂'],['repairs','الصيانة','🔧'],['accounts','الحسابات','▤'],['controlDirect','الكنترول','⚙'],['more','المزيد','☰']];
+ $('bottomNav').innerHTML=items.map(([id,label,ico])=>`<button class="${(page===id||id==='controlDirect'&&control)?'active':''}" data-bottom="${id}"><b>${ico}</b>${label}</button>`).join('');
+ document.querySelectorAll('[data-bottom]').forEach(b=>b.onclick=()=>{const id=b.dataset.bottom;if(id==='controlDirect'){switchControl()}else if(id==='more'){$('side').classList.toggle('open')}else go(id)});
+ if($('returnShop'))$('returnShop').onclick=returnToShop; $('back').style.visibility=(historyStack.length||!['home','control'].includes(page))?'visible':'hidden';wire()};function stats(arr){return `<div class="stats">${arr.map(([label,val])=>`<div class="stat"><span class="small">${label}</span><b>${esc(val)}</b></div>`).join('')}</div>`};function head(t,s=''){return `<div class="flex"><h2>${t}</h2><span class="small">${s}</span></div>`};function shopView(){let rs=state.repairs,received=rs.reduce((n,r)=>n+(+r.paid||0),0);switch(page){case 'repairNew':return wizardView();case 'repairDetail':return repairDetail();case 'repairStatus':return statusView();case 'home':return `<div class="hero"><div><h2>أهلًا بك في 3PLUS</h2><div class="muted">برنامج إدارة صيانة الهواتف</div></div><span style="font-size:40px">✦</span></div><div class="tiles"><button class="tile" onclick="go('dashboard')"><span class="emoji">📊</span><strong>لوحة التحكم</strong><p>البيانات والإحصائيات ومتابعة أداء المحل</p></button><button class="tile" onclick="go('repairs')"><span class="emoji">🔧</span><strong>صيانة</strong><p>إدارة أجهزة الصيانة ومتابعة حالتها</p></button><button class="tile red" onclick="go('losses')"><span class="emoji">↩️</span><strong>مرتجع أو خسارة</strong><p>تسجيل المرتجعات والخسائر</p></button></div><div class="homeStats">${[['جديدة',rs.filter(r=>r.status==='تم الاستلام').length,'#3ddd94','▣'],['جاهز للاستلام',rs.filter(r=>r.status==='جاهز للاستلام').length,'#f6c745','🛠'],['متأخرة',rs.filter(r=>r.status==='انتظار قطعة غيار').length,'#ff7373','!']].map(([label,n,color,ic])=>`<div class="homeStat"><div style="color:${color};font-size:20px;font-weight:bold">${ic} ${n}</div><small>${label}</small></div>`).join('')}</div><div class="homeLatest"><div class="flex"><h3>آخر الأجهزة</h3><button class="btn alt" onclick="go('repairs')">عرض الكل ←</button></div>${rs.slice(-5).reverse().map(r=>`<button class="latestItem" data-open-repair="${r.id}"><b>#${r.id}</b><span>${esc(r.device)}<small>${esc(r.client)}</small></span><em>${esc(r.status)}</em></button>`).join('')||'<p class="muted">لا توجد صيانات</p>'}</div>`;case 'dashboard':return head('لوحة التحكم','أرقام توضيحية من بيانات المعاينة')+stats([['إجمالي الصيانات',rs.length],['في المحل',rs.filter(x=>!['تم التسليم','مرفوض'].includes(x.status)).length],['جاهز للاستلام',rs.filter(x=>x.status==='جاهز للاستلام').length],['إجمالي المقبوض',fmt(received)]])+`<div class="panel" style="margin-top:16px"><h3>آخر الصيانات</h3>${repairTable(rs.slice(-5))}</div>`;case 'repairs':return head('إدارة الصيانة')+`<div class="actions"><button class="btn" id="newRepair">+ إضافة صيانة جديدة</button></div><div class="panel">${`<div class="repaircards">${rs.slice().reverse().map(r=>`<button class="repaircard" data-open-repair="${r.id}"><span><strong>#${r.id} — ${esc(r.device)}</strong><small>${esc(r.client)} · ${esc(r.fault)}</small></span><span class="status">${esc(r.status)}</span></button>`).join('')}</div>`}</div>`;case 'records':return head('سجل الصيانات')+`<div class="panel">${repairTable(rs)}</div>`;case 'losses':return cloudReady?cloudLossesView():head('مرتجع أو خسارة')+'<div class="panel">سجّل الدخول لعرض الخسائر الحقيقية</div>';case 'accounts':if(cloudReady)return cloudAccountsView();return head('الدرج والحسابات — معاينة فقط')+stats(Object.entries(state.accounts).map(([k,v])=>[k,fmt(v)]))+`<div class="actions"><button class="btn" id="newMove">+ حركة مالية تجريبية</button></div><div class="panel"><h3>آخر الحركات</h3>${state.movements.map(x=>`<p>${esc(x.date)} — ${esc(x.account)} — ${esc(x.kind)} — ${fmt(x.amount)}</p>`).join('')||'<p class="muted">لا توجد حركات</p>'}</div>`;case 'daily':return cloudReady?dailyCloudView():head('التقفيل اليومي')+'<div class="panel">سجّل الدخول لعرض التقرير الحقيقي</div>';case 'monthly':return cloudReady?monthlyCloudView():head('الأرباح الشهرية')+'<div class="panel">سجّل الدخول لعرض التقرير الحقيقي</div>';case 'dues':return featureEnabled('dues')?head('تنبيهات المستحقات')+`<div class="panel"><h3>المبالغ المتبقية على العملاء</h3><div class="stats">${[['عدد الصيانات المستحقة',rs.filter(r=>(+r.price||0)>(+r.paid||0)&&r.status!=='مرفوض').length],['إجمالي المستحقات',fmt(rs.filter(r=>r.status!=='مرفوض').reduce((n,r)=>n+Math.max(0,(+r.price||0)-(+r.paid||0)),0))]].map(([l,v])=>`<div class="stat">${esc(l)}<b>${esc(v)}</b></div>`).join('')}</div>${rs.filter(r=>(+r.price||0)>(+r.paid||0)&&r.status!=='مرفوض').map(r=>`<div class="perm dueLate"><span><strong>#${r.id} — ${esc(r.client)}</strong><br><small>${esc(r.device)} · متبقي ${fmt((+r.price||0)-(+r.paid||0))}</small></span><button class="btn alt" data-remind="${r.id}">واتساب</button></div>`).join('')||'<p>مفيش مستحقات مسجلة.</p>'}</div>`:'<p>الميزة غير مفعلة</p>';
+case 'settings':return head('إعدادات المحل')+`<div class="panel"><h3>الإعدادات المسموح بها</h3>${Object.entries(state.permissions).filter(([k,v])=>v).map(([k])=>`<p>✅ ${esc(({settings:'عرض الإعدادات',staff:'إدارة الموظفين',opening:'الرصيد الافتتاحي',closing:'موعد التقفيل',branding:'تغيير الهوية',whatsapp:'واتساب'})[k])}</p>`).join('')}<p class="muted">مدى الإتاحة الفعلي يحكمه السيرفر بعد مرحلة الربط.</p></div>`;case 'support':return head('الدعم الفني')+`<div class="panel">رقم الدعم: <a href="tel:01020524213">01020524213</a></div>`;default:return ''}}
+function repairTable(rs){return `<div class="tablewrap"><table><thead><tr><th>الرقم</th><th>العميل</th><th>الجهاز</th><th>العطل</th><th>سعر البيع</th><th>تكلفة الجملة</th><th>الربح المتوقع</th><th>المتبقي</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody>${rs.map(r=>`<tr><td>#${r.id}</td><td>${esc(r.client)}</td><td>${esc(r.device)}</td><td>${esc(r.fault)}</td><td>${fmt(r.price)}</td><td>${fmt(r.cost||0)}</td><td>${fmt(profit(r))}</td><td>${fmt((+r.price||0)-(+r.paid||0))}</td><td><span class="status">${esc(r.status)}</span></td><td><button class="btn alt" data-edit="${r.id}">تعديل</button></td></tr>`).join('')}</tbody></table></div>`}
+function ownerView(){switch(page){case 'control':return `<div class="controlHeader"><h2>🛡️ لوحة مالك النظام — 3PLUS Control</h2><p>معاينة تحكم لكل محل بالأقسام والمميزات. الربط والصلاحيات الفعلية لم تنفذ بعد.</p></div>`+stats([['المحلات',state.shops.length],['نشط',state.shops.filter(x=>x.active).length],['موقوف',state.shops.filter(x=>!x.active).length],['الاشتراكات','تجريبية']])+`<div class="tiles" style="margin-top:18px"><button class="tile" onclick="go('shops')"><span class="emoji">🏬</span>إدارة المحلات</button><button class="tile" onclick="go('theme')"><span class="emoji">🎨</span>الألوان والقوالب</button><button class="tile" onclick="go('users')"><span class="emoji">👥</span>الصلاحيات</button></div>`;case 'shops':return head('إدارة المحلات')+`<div class="actions"><button class="btn" id="addShop">+ إضافة محل تجريبي</button></div><div class="panel">${state.shops.map(s=>`<div class="perm"><span>${esc(s.name)} <span class="tag">${s.active?'نشط':'موقوف'}</span></span><button class="btn alt" data-shop="${s.id}">${s.active?'إيقاف':'تفعيل'}</button></div>`).join('')}</div>`;case 'users':return head('المستخدمون والصلاحيات')+`<div class="panel"><h3>ما يُسمح للعميل بتعديله</h3><p class="muted">الإعدادات محدودة افتراضيًا حسب اختيار مالك النظام.</p>${Object.entries(state.permissions).map(([k,v])=>`<label class="perm"><span>${esc(({settings:'إظهار قسم الإعدادات',staff:'إدارة الموظفين',opening:'تعديل الرصيد الافتتاحي',closing:'تعديل موعد التقفيل',branding:'تغيير اللون واللوجو',whatsapp:'إعدادات واتساب'})[k])}</span><input type="checkbox" class="switch" data-perm="${k}" ${v?'checked':''}></label>`).join('')}</div><p class="muted">دي تغييرات معاينة محلية فقط. منع الصلاحيات الحقيقي يحتاج سياسات RLS واختبارها.</p>`;case 'theme':return head('التحكم في الألوان والقوالب')+`<div class="panel"><h3>اللون الأساسي</h3><div class="colors">${['#f4c542','#3589e7','#30bc7e','#9c6aec','#db5b61'].map(c=>`<button aria-label="لون ${c}" title="${c}" class="swatch ${state.color===c?'selected':''}" data-color="${c}" style="background:${c}"></button>`).join('')}</div><h3 style="margin-top:24px">القالب</h3><div class="fields"><div class="field"><label>قالب واجهة المحل</label><select id="template"><option value="cards" ${state.template==='cards'?'selected':''}>كروت كبيرة — التصميم المعتمد</option><option value="classic" ${state.template==='classic'?'selected':''}>كلاسيكي (مخطط للتنفيذ)</option><option value="compact" ${state.template==='compact'?'selected':''}>مختصر (مخطط للتنفيذ)</option></select></div></div><p class="muted">تغيير اللون يعمل في المعاينة؛ القوالب الأخرى لم تُبرمج كواجهات مستقلة بعد.</p></div>`;case 'order':return head('ترتيب الأقسام')+`<div class="panel"><p class="muted">تغيير ترتيب القائمة في هذه المعاينة فقط:</p>${state.order.map((k,i)=>`<div class="perm"><span>${esc(({dashboard:'لوحة التحكم',repairs:'صيانة',losses:'مرتجع أو خسارة',accounts:'الدرج والحسابات',daily:'التقفيل اليومي',monthly:'الأرباح الشهرية',records:'سجل الصيانات',settings:'الإعدادات'})[k])}</span><span><button class="btn alt" data-up="${i}" aria-label="رفع">↑</button> <button class="btn alt" data-down="${i}" aria-label="خفض">↓</button></span></div>`).join('')}</div>`;case 'features':return head('إدارة المميزات الاختيارية')+`<div class="panel">${shopSelector()}<p class="featureNote">المميزات مقفولة افتراضيًا للمحلات الجديدة. تفعيلها وإيقافها هنا للمعاينة المحلية فقط.</p>${FEATURES.map(([k,label,description])=>`<label class="perm"><span><strong>${label}</strong><br><small>${description}</small></span><input aria-label="${label}" type="checkbox" class="switch" data-feature="${k}" ${featureEnabled(k,state.selectedShopId)?'checked':''}></label>`).join('')}<button class="btn alt" id="previewSelected" style="margin-top:18px">👁️ معاينة برنامج المحل ده</button></div>`;
+case 'clientPreview':return head('معاينة برنامج العميل')+`<div class="panel"><div class="field"><label>المحل</label><select id="previewShopSelect">${state.shops.map(x=>`<option value="${x.id}" ${+state.previewShopId===+x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div><p class="small">معاينة فقط بدون تسجيل دخول لحساب العميل.</p></div>`+shopPreviewPage();
+case 'activity':return head('سجل الموظفين والعمليات')+`<div class="panel"><p class="small">سجل محلي لعمليات المعاينة على هذا الجهاز؛ ليس سجل مراجعة آمنًا أو مشتركًا بين الموظفين.</p><div class="tablewrap"><table><thead><tr><th>التاريخ والوقت</th><th>المستخدم</th><th>العملية</th><th>التفاصيل</th></tr></thead><tbody>${state.activity.map(x=>`<tr><td>${esc(x.at)}</td><td>${esc(x.by)}</td><td>${esc(x.action)}</td><td>${esc(x.detail)}</td></tr>`).join('')||'<tr><td colspan="4">لا توجد عمليات بعد</td></tr>'}</tbody></table></div></div>`;
+case 'subscriptions':return head('الاشتراكات')+`<div class="panel"><h3>الاشتراكات المدفوعة</h3><p class="muted">شكل القسم جاهز للمعاينة. الدفع الحقيقي، تاريخ انتهاء الباقات، وتعليق حساب العميل لم تُنفّذ بعد.</p></div>`;case 'updates':return head('التحديثات والدعم')+`<div class="panel"><h3>التحديثات والنسخ الاحتياطي</h3><p class="muted">يحتاج التنفيذ الحقيقي آليات سيرفر، وجدولة آمنة وتجربة استرجاع، وليس HTML فقط.</p></div>`;default:return ''}}
+function modal(title,body,fn){$('mt').textContent=title;$('mb').innerHTML=body;$('merr').textContent='';dlgSave=fn;$('modal').showModal()};function field(name,id,value='',type='text'){return `<div class="field"><label for="f_${id}">${name}</label><input id="f_${id}" type="${type}" value="${esc(value)}" ${type==='number'?'min="0" step="0.01"':''} required></div>`};function v(id){return $('f_'+id).value.trim()};function editRepair(id){if(cloudRole==='employee')return alert('تعديل الأسعار متاح للإدارة فقط');let r=state.repairs.find(x=>x.id===id)||{client:'',phone:'',device:'',fault:'',price:0,cost:0,labor:0,paid:0,status:statuses[0]};modal(id?'تعديل الصيانة':'إضافة صيانة جديدة',`<div class="fields">${field('اسم العميل','client',r.client)}${field('رقم الموبايل','phone',r.phone)}${field('نوع الجهاز','device',r.device)}${field('العطل','fault',r.fault)}${field('سعر الصيانة للعميل','price',r.price,'number')}${field('تكلفة الجملة / قطع الغيار','cost',r.cost||0,'number')}${field('تكلفة الشغل الإضافية','labor',r.labor||0,'number')}${field('المقبوض','paid',r.paid,'number')}<div class="field"><label>حالة الصيانة</label><select id="f_status">${statuses.map(s=>`<option ${s===r.status?'selected':''}>${s}</option>`).join('')}</select></div></div>`,()=>{if(!v('client')||!v('device')||!v('fault'))throw Error('أكمل بيانات العميل والجهاز والعطل');if(+v('paid')>+v('price'))throw Error('المقبوض أكبر من السعر');if(['price','cost','labor','paid'].some(k=>!Number.isFinite(+v(k))||+v(k)<0))throw Error('القيم المالية غير صحيحة');if(id&&cloudReady){requireCloudUUID(r);if(+v('paid')!==+r.paid)throw Error('تعديل المقبوض من الشاشة دي غير مفعل سحابيًا لسه');cloudBusy=true;cloudUpdateRepair(r,{client:v('client'),phone:v('phone'),device:v('device'),fault:v('fault'),price:+v('price'),cost:+v('cost'),labor:+v('labor'),status:v('status')}).then(()=>{alert('تم تحديث الصيانة في Supabase');}).catch(e=>alert(cloudError(e))).finally(()=>{cloudBusy=false});return;}throw Error('التعديل متاح فقط بعد تسجيل الدخول والاتصال.');Object.assign(r,{client:v('client'),phone:v('phone'),device:v('device'),fault:v('fault'),price:+v('price'),cost:+v('cost'),labor:+v('labor'),paid:+v('paid'),status:v('status')});if(!id){r.id=Date.now();r.date=new Date().toISOString().slice(0,10);state.repairs.push(r)}activityLog(id?'تعديل صيانة':'إضافة صيانة','صيانة #'+r.id);persist()})}function wire(){document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editRepair(+b.dataset.edit));if($('newRepair'))$('newRepair').onclick=()=>{if(cloudRole==='employee')return alert('إضافة صيانة بتكاليف الجملة متاحة للإدارة فقط');wizardData={};wizardStep=0;go('repairNew')};
+document.querySelectorAll('[data-open-repair]').forEach(b=>b.onclick=()=>{selectedRepair=+b.dataset.openRepair;go('repairDetail')});
+if($('wizardBack'))$('wizardBack').onclick=()=>back();
+if($('wizardNext'))$('wizardNext').onclick=async()=>{
+ saveWizardFields();
+ if(wizardStep===0&&!wizardData.device?.trim())return alert('اكتب نوع الجهاز');
+ if(wizardStep===1&&(!wizardData.client?.trim()||!wizardData.phone?.trim()))return alert('اكتب اسم العميل ورقم الهاتف');
+ if(wizardStep===2){
+ if(!wizardData.fault?.trim())return alert('اكتب وصف العطل');
+ if(!wizardData.price?.trim()||!wizardData.cost?.trim())return alert('أدخل سعر البيع وتكلفة الجملة حتى لو التكلفة صفر');if([wizardData.price,wizardData.cost,wizardData.labor||0,wizardData.paid||0].some(x=>!Number.isFinite(+x)||+x<0))return alert('المبالغ لازم تكون أرقام صحيحة وغير سالبة');if((+wizardData.price||0)<(+wizardData.paid||0))return alert('العربون أكبر من سعر الصيانة');
+  if(!cloudReady)return alert('تسجيل الدخول مطلوب قبل حفظ الصيانة');
+  const btn=$('wizardNext');btn.disabled=true;btn.textContent='جاري حفظ الصيانة...';
+  try{
+   const record=await cloudAddRepair({client:wizardData.client,phone:wizardData.phone,device:wizardData.device+(wizardData.model?' '+wizardData.model:''),fault:wizardData.fault,price:+wizardData.price||0,cost:+wizardData.cost||0,labor:+wizardData.labor||0,paid:+wizardData.paid||0,status:wizardData.status||'تم الاستلام'});
+   const saved=state.repairs.find(x=>x.uuid===record.id);
+   if(!saved)throw Error('اتحفظت الصيانة لكن لم تظهر في القائمة. حدث الصفحة وتأكد قبل ما تعيد التسجيل.');
+   selectedRepair=saved.id;
+   historyStack.push({page:'repairs',control:false});page='repairDetail';wizardData={};wizardStep=0;render();
+   alert('تم حفظ الصيانة في Supabase برقم #'+saved.id);
+  }catch(e){alert(cloudError(e));btn.disabled=false;btn.textContent='✓ حفظ الصيانة';}
+  return;
+ }wizardStep++;render();
+};
+if($('receiptIn'))$('receiptIn').onclick=()=>{const r=state.repairs.find(x=>x.id===selectedRepair);printReceipt('استلام',r)};
+if($('receiptOut'))$('receiptOut').onclick=()=>{const r=state.repairs.find(x=>x.id===selectedRepair);printReceipt('تسليم',r)};
+document.querySelectorAll('[data-remind]').forEach(b=>b.onclick=()=>{const r=state.repairs.find(x=>x.id==b.dataset.remind);const number=(r.phone||'').replace(/\D/g,'');if(!/^01\d{9}$/.test(number))return alert('رقم الموبايل غير صالح');const due=Math.max(0,(+r.price||0)-(+r.paid||0));window.open('https://wa.me/20'+number.slice(1)+'?text='+encodeURIComponent(`أهلًا ${r.client}، بنفكرك إن باقي على صيانة جهازك ${r.device} مبلغ ${due} جنيه. شكرًا لتعاملك مع 3PLUS.`),'_blank')});
+if($('shopFeatureSelect'))$('shopFeatureSelect').onchange=e=>{state.selectedShopId=+e.target.value;persist()};
+document.querySelectorAll('[data-feature]').forEach(b=>b.onchange=()=>{shopFeatures(state.selectedShopId)[b.dataset.feature]=b.checked;activityLog('تعديل ميزة',b.dataset.feature+' — محل #'+state.selectedShopId+' — '+(b.checked?'تفعيل':'إيقاف'));persist()});
+if($('previewSelected'))$('previewSelected').onclick=()=>{state.previewShopId=+state.selectedShopId;go('clientPreview')};
+if($('previewShopSelect'))$('previewShopSelect').onchange=e=>{state.previewShopId=+e.target.value;persist()};
+if($('changeStatus'))$('changeStatus').onclick=()=>go('repairStatus');if($('collectRepair'))$('collectRepair').onclick=openRepairCollection;if($('newExpense'))$('newExpense').onclick=()=>openCashOut('expense');
+if($('editExisting'))$('editExisting').onclick=()=>editRepair(selectedRepair);
+if($('waCustomer'))$('waCustomer').onclick=()=>{const r=state.repairs.find(x=>x.id===selectedRepair);const digits=(r.phone||'').replace(/\D/g,'');if(!/^01\d{9}$/.test(digits))return alert('رقم الهاتف غير صالح لواتساب المصري');window.open('https://wa.me/20'+digits.slice(1)+'?text='+encodeURIComponent('أهلاً '+r.client+'، حالة صيانة جهازك رقم #'+r.id+': '+r.status),'_blank')};
+document.querySelectorAll('[data-status]').forEach(b=>b.onclick=async()=>{
+ const r=state.repairs.find(x=>x.id===selectedRepair),next=statuses[+b.dataset.status];
+ b.disabled=true;
+ try{
+  const uuid=requireCloudUUID(r);
+  const {error}=await cloud.rpc('save_repair_3plus',{p_repair_id:uuid,p_shop_id:cloudShop.id,p_client:r.client,p_phone:r.phone,p_device:r.device,p_fault:r.fault,p_status:next,p_price:r.price,p_cost:r.cost,p_labor:r.labor||0,p_notes:r.notes||''});
+  if(error)throw Error(cloudError(error));
+  await refreshCloudRepairs();
+  activityLog('تغيير حالة الصيانة','#'+r.id+' إلى '+next);page='repairDetail';render();
+ }catch(e){alert('تعذر تغيير الحالة: '+cloudError(e));b.disabled=false}
+});
+
+if($('reloadDaily'))$('reloadDaily').onclick=loadDailyReport;if($('closeCashDay'))$('closeCashDay').onclick=submitCloseCashDay;if($('reloadMonthly'))$('reloadMonthly').onclick=loadMonthlyReport;if($('reportMonth'))$('reportMonth').onchange=e=>{selectedReportMonth=e.target.value;monthlyReport=null;loadMonthlyReport()};if($('cloudTransfer'))$('cloudTransfer').onclick=openCloudTransfer;if($('cloudWithdraw'))$('cloudWithdraw').onclick=openCloudWithdrawal;if($('openingBalance'))$('openingBalance').onclick=openOpeningBalance;if($('zeroDrawer'))$('zeroDrawer').onclick=openZeroDrawer;if($('reloadAccounts'))$('reloadAccounts').onclick=async()=>{await refreshCloudAccounts();render()};
+if($('newLoss'))$('newLoss').onclick=()=>openCashOut('loss');if($('addShop'))$('addShop').onclick=()=>modal('إضافة محل للمعاينة',field('اسم المحل','name'),()=>{if(!v('name'))throw Error('اكتب اسم المحل');state.shops.push({id:Date.now(),name:v('name'),active:true,plan:'تجريبي'});persist()});document.querySelectorAll('[data-shop]').forEach(b=>b.onclick=()=>{const s=state.shops.find(s=>s.id==b.dataset.shop);s.active=!s.active;persist()});document.querySelectorAll('[data-perm]').forEach(b=>b.onchange=()=>{state.permissions[b.dataset.perm]=b.checked;persist()});document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>{state.color=b.dataset.color;persist()});if($('template'))$('template').onchange=e=>{state.template=e.target.value;persist()};document.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{let i=+b.dataset.up;if(i>0){[state.order[i-1],state.order[i]]=[state.order[i],state.order[i-1]];persist()}});document.querySelectorAll('[data-down]').forEach(b=>b.onclick=()=>{let i=+b.dataset.down;if(i<state.order.length-1){[state.order[i+1],state.order[i]]=[state.order[i],state.order[i+1]];persist()}})};$('menu').onclick=()=>$('side').classList.toggle('open');$('mode').onclick=switchControl;$('back').onclick=back;$('cancel').onclick=()=>$('modal').close();$('save').onclick=()=>{try{const result=dlgSave?.();if(result&&typeof result.then==='function'){result.catch(e=>{$('merr').textContent=cloudError(e)});return}$('modal').close()}catch(e){$('merr').textContent=e.message}};$('logout').onclick=async()=>{if(!cloud||!confirm('تسجيل الخروج من 3PLUS؟'))return;await cloud.auth.signOut();cloudReady=false;cloudUser=null;cloudShop=null;cloudAccounts=[];cloudMovements=[];cloudBalances=new Map();balancesVerified=false;openingAllowed=false;state.repairs=[];document.getElementById('cloudGate').hidden=false;document.getElementById('cloudPassword').value='';cloudMessage('تم تسجيل الخروج');};$('language').onclick=()=>alert('الترجمة الإنجليزية ضمن مرحلة التنفيذ التالية.');render();
+// New cloud management screens; retain all original CSS and navigation.
+let cloudMembers=[],cloudFeatures=[],cloudSettings=null,cloudSubscription=null,cloudIsSystemAdmin=false;
+async function refreshCloudManagement(){
+ if(!cloudReady)return;
+ const [members,settings,features,sub,sys]=await Promise.all([
+  cloud.from('shop_members').select('shop_id,user_id,role,active').eq('shop_id',cloudShop.id),
+  cloud.from('shop_settings').select('*').eq('shop_id',cloudShop.id).maybeSingle(),
+  cloud.from('shop_features').select('feature_key,enabled').eq('shop_id',cloudShop.id),
+  cloud.from('shop_subscriptions').select('plan,status,expires_at').eq('shop_id',cloudShop.id).maybeSingle(),
+  cloud.from('system_admins').select('user_id').eq('user_id',cloudUser.id)
+ ]);
+ if(members.error||settings.error||features.error||sub.error||sys.error)throw Error('خطأ إعدادات: '+cloudError(members.error||settings.error||features.error||sub.error||sys.error));
+ cloudMembers=members.data||[];cloudSettings=settings.data;cloudFeatures=features.data||[];cloudSubscription=sub.data;cloudIsSystemAdmin=!!sys.data?.length;
+ state.featureByShop['1']={receipts:cloudFeatures.some(f=>f.feature_key==='receipts'&&f.enabled),dues:cloudFeatures.some(f=>f.feature_key==='dues'&&f.enabled)};
+}
+const originalOwnerView=ownerView;
+ownerView=function(){
+ if(!cloudReady)return '<div class="panel">سجّل الدخول أولًا</div>';
+ const enabled=key=>cloudFeatures.find(f=>f.feature_key===key)?.enabled||false;
+ if(page==='control')return head('لوحة تحكم 3PLUS Control')+`<div class="panel"><h3>${esc(cloudShop.name)}</h3><p>دور حسابك: ${esc(cloudRole)}</p><p>الاشتراك: ${esc(cloudSubscription?.plan||'trial')} — ${esc(cloudSubscription?.status||'trial')}</p><p>صلاحيات المالك والإدارة محكومة من قاعدة البيانات.</p></div>`;
+ if(page==='shops')return head('إدارة المحلات')+`<div class="panel"><h3>المحل الحالي</h3><p>${esc(cloudShop.name)}</p><p>الحالة: ${cloudSubscription?.status==='disabled'?'موقوف':'نشط'}</p>${cloudIsSystemAdmin?'<p>حساب مشرف المنصة مفعّل</p>':'<p class="small">التحكم في محلات الآخرين متاح فقط لمشرف المنصة المعتمد في Supabase.</p>'}</div>`;
+ if(page==='users')return head('المستخدمون والصلاحيات')+`<div class="panel"><h3>موظفو المحل</h3>${cloudMembers.map(m=>`<div class="perm"><span>${esc(m.user_id)}<small> — ${esc(m.role)}</small></span></div>`).join('')}<div class="actions"><button class="btn" id="cloudAddEmployee">إضافة موظف بالبريد</button></div><p class="small">لازم الموظف يعمل حساب أولًا. إضافة الموظف وصلاحياته بتتسجل على السيرفر.</p></div>`;
+ if(page==='features')return head('إدارة المميزات')+`<div class="panel">${[['receipts','طباعة الإيصالات'],['dues','تنبيهات المستحقات']].map(([key,label])=>`<label class="perm"><span>${label}</span><input class="switch" type="checkbox" data-cloud-feature="${key}" ${enabled(key)?'checked':''}></label>`).join('')}</div>`;
+ if(page==='subscriptions')return head('الاشتراكات')+`<div class="panel"><p>الباقة: ${esc(cloudSubscription?.plan||'trial')}</p><p>الحالة: ${esc(cloudSubscription?.status||'trial')}</p><p>الانتهاء: ${esc(cloudSubscription?.expires_at||'غير محدد')}</p><p class="small">الاشتراكات هنا سجلات داخلية؛ دفع إلكتروني غير مدمج.</p></div>`;
+ if(page==='activity')return head('سجل العمليات')+`<div class="panel" id="cloudAuditArea">جاري قراءة السجل...</div>`;
+ if(page==='theme'||page==='order')return head(page==='theme'?'الألوان والقوالب':'ترتيب الأقسام')+`<div class="panel"><p>التصميم المعتمد محفوظ بدون تغيير. تخصيص الشكل الحالي على جهازك فقط، ولا يغير صلاحيات أو بيانات المحل.</p></div>`;
+ if(page==='updates')return head('التحديثات والنسخ الاحتياطي')+`<div class="panel"><p>البيانات محفوظة في قاعدة Supabase. لا توجد جدولة نسخ احتياطي مُفعّلة ضمن هذه النسخة؛ يلزم إعداد نسخ آمن مستقل.</p></div>`;
+ if(page==='clientPreview')return head('معاينة برنامج المحل')+`<div class="panel"><h3>${esc(cloudShop.name)}</h3><p>المعاينة ببيانات المحل الحقيقي المقروءة من حسابك.</p></div>`;
+ return originalOwnerView();
+};
+const originalShopView=shopView;
+shopView=function(){
+ if(cloudRole==='employee'&&['accounts','daily','monthly','losses'].includes(page))return head('غير مصرح')+'<div class="panel">القسم المالي متاح للإدارة فقط</div>';
+ if(page==='settings'&&cloudReady)return head('إعدادات المحل')+`<div class="panel"><h3>إعدادات التقفيل والصلاحيات</h3><div class="fields"><div class="field"><label>موعد التقفيل اليومي</label><input id="cloudCloseTime" type="time" value="${esc((cloudSettings?.daily_closing_time||'03:00').slice(0,5))}"></div><div class="field"><label>السماح بتعديل الرصيد الافتتاحي</label><select id="cloudOpenPermission"><option value="true" ${cloudSettings?.allow_opening_balance_edit?'selected':''}>مسموح</option><option value="false" ${!cloudSettings?.allow_opening_balance_edit?'selected':''}>ممنوع</option></select></div></div><div class="actions"><button class="btn" id="saveCloudSettings">حفظ الإعدادات</button></div><p class="small">التوقيت بتوقيت القاهرة، والأوامر المالية مسجلة على السيرفر.</p></div>`;
+ return originalShopView();
+};
+const wirePrevious=wire;
+wire=function(){
+ wirePrevious();
+ if($('saveCloudSettings'))$('saveCloudSettings').onclick=async()=>{const {error}=await cloud.rpc('update_shop_settings_3plus',{p_shop:cloudShop.id,p_close_time:$('cloudCloseTime').value,p_allow_opening:$('cloudOpenPermission').value==='true'});if(error)return alert(cloudError(error));await refreshCloudManagement();await refreshCloudAccounts();alert('اتحفظت إعدادات المحل');render()};
+ if($('cloudAddEmployee'))$('cloudAddEmployee').onclick=()=>modal('إضافة موظف',`<div class="fields">${field('بريد الموظف المسجل','employeeEmail')}<div class="field"><label>الدور</label><select id="cloudEmpRole"><option value="employee">موظف</option><option value="admin">مدير</option></select></div></div>`,async()=>{const {error}=await cloud.rpc('add_shop_member_3plus',{p_shop:cloudShop.id,p_email:v('employeeEmail'),p_role:$('cloudEmpRole').value});if(error)throw Error(cloudError(error));await refreshCloudManagement();render();$('modal').close();alert('تم ربط الموظف بالمحل')});
+ document.querySelectorAll('[data-cloud-feature]').forEach(el=>el.onchange=async()=>{const {error}=await cloud.rpc('set_shop_feature_3plus',{p_shop:cloudShop.id,p_key:el.dataset.cloudFeature,p_enabled:el.checked});if(error){alert(cloudError(error));el.checked=!el.checked;return;}await refreshCloudManagement();render()});
+ if(page==='activity'&&$('cloudAuditArea'))cloud.from('audit_logs').select('action,details,created_at,actor_id').eq('shop_id',cloudShop.id).order('created_at',{ascending:false}).limit(100).then(({data,error})=>{const area=$('cloudAuditArea');if(area)area.innerHTML=error?`<p>${esc(cloudError(error))}</p>`:(data||[]).map(x=>`<div class="perm"><span>${esc(x.action)}<small> · ${esc(x.actor_id)} · ${esc(x.created_at)}</small></span></div>`).join('')||'لا توجد حركات'});
+};
+document.getElementById('cloudSignupBtn').onclick=async()=>{
+ if(!cloud)return cloudMessage('الاتصال لم يجهز');
+ const email=document.getElementById('cloudEmail').value.trim(),password=document.getElementById('cloudPassword').value;
+ if(!email||password.length<8)return cloudMessage('اكتب البريد وكلمة مرور 8 أحرف على الأقل');
+ const {data,error}=await cloud.auth.signUp({email,password});
+ if(error)return cloudMessage('تعذر إنشاء الحساب: '+cloudError(error));
+ if(data.session)await enterCloud(data.user);else cloudMessage('تم طلب إنشاء الحساب. افتح رسالة تأكيد البريد إن كانت مطلوبة ثم سجّل الدخول.');
+};
+// Owner-only management: employees must not see pricing/cash internals in the interface.
+const priorSwitchControl=switchControl;
+switchControl=function(){if(cloudRole==='employee')return alert('الكنترول مش متاح للموظف');priorSwitchControl()};
+
+document.getElementById('cloudLogin').onsubmit=async e=>{e.preventDefault();const b=document.getElementById('cloudLoginBtn');b.disabled=true;cloudMessage('جاري تسجيل الدخول...');try{if(!cloud)throw Error('الاتصال لم يجهز');const {data,error}=await cloud.auth.signInWithPassword({email:document.getElementById('cloudEmail').value.trim(),password:document.getElementById('cloudPassword').value});if(error)throw error;await enterCloud(data.user)}catch(err){cloudMessage('تعذر تسجيل الدخول: '+cloudError(err))}finally{b.disabled=false}};startCloud();
+</script></body></html>
