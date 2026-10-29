@@ -716,7 +716,7 @@ render=function(){
  authorizedRender();
  const modeButton=document.getElementById('mode');
  modeButton.hidden=!cloudReady||!cloudIsSystemAdmin;
- modeButton.style.display=cloudReady&&cloudIsSystemAdmin?'':'none';
+ modeButton.style.display=cloudReady&&cloudIsSystemAdmin?'inline-flex':'none';
  const logoutButton=document.getElementById('logout');
  logoutButton.hidden=!cloudReady;
  const controlBottom=document.querySelector('[data-bottom="controlDirect"]');
