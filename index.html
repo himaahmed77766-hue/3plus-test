@@ -587,7 +587,16 @@ async function ctlInviteUser(email,type,shopId=null){
  const payload={email:email.trim().toLowerCase(),type};
  if(shopId)payload.shop_id=shopId;
  const {data,error}=await cloud.functions.invoke('threeplus-invite-user',{body:payload});
- if(error)throw Error('فشل إرسال الدعوة: '+cloudError(error)+(data?.error?' — '+data.error:''));
+ if(error){
+  // FunctionsHttpError.context is the HTTP Response. Read its JSON body once
+  // to show the server's actual explanation rather than just "non-2xx".
+  let detail='';
+  try{
+   const body=await error.context?.clone?.().json();
+   detail=String(body?.error||body?.message||body?.msg||'').slice(0,400);
+  }catch(_ignored){}
+  throw Error('فشل إرسال الدعوة: '+(detail||cloudError(error)));
+ }
  if(!data?.success)throw Error('الدعوة لم تكتمل: '+(data?.error||'استجابة غير متوقعة من السيرفر'));
  return data;
 }
