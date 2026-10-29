@@ -509,10 +509,13 @@ async function refreshCloudManagement(){
   cloud.from('shop_settings').select('*').eq('shop_id',cloudShop.id).maybeSingle(),
   cloud.from('shop_features').select('feature_key,enabled').eq('shop_id',cloudShop.id),
   cloud.from('shop_subscriptions').select('plan,status,expires_at').eq('shop_id',cloudShop.id).maybeSingle(),
-  cloud.from('system_admins').select('user_id').eq('user_id',cloudUser.id)
+  // Platform permissions are checked by the server-side control RPC, not browser table access.
+  cloud.rpc('control_list_shops_3plus')
  ]);
- if(members.error||settings.error||features.error||sub.error||sys.error)throw Error('خطأ إعدادات: '+cloudError(members.error||settings.error||features.error||sub.error||sys.error));
- cloudMembers=members.data||[];cloudSettings=settings.data;cloudFeatures=features.data||[];cloudSubscription=sub.data;cloudIsSystemAdmin=!!sys.data?.length;
+ if(members.error||settings.error||features.error||sub.error)throw Error('خطأ إعدادات: '+cloudError(members.error||settings.error||features.error||sub.error));
+ cloudMembers=members.data||[];cloudSettings=settings.data;cloudFeatures=features.data||[];cloudSubscription=sub.data;
+ // This RPC is restricted server-side to system administrators. A rejected call never grants access.
+ cloudIsSystemAdmin=!sys.error && Array.isArray(sys.data);
  state.featureByShop['1']={receipts:cloudFeatures.some(f=>f.feature_key==='receipts'&&f.enabled),dues:cloudFeatures.some(f=>f.feature_key==='dues'&&f.enabled)};
 }
 const originalOwnerView=ownerView;
