@@ -101,7 +101,7 @@ body{background:#070e18;color:var(--text)}.shell{max-width:1600px}
 .cloudPanel label{display:block;margin:14px 0 6px;color:#e9cb7d}.cloudPanel .btn{width:100%;margin-top:17px}
 #cloudFeedback{margin-top:12px;line-height:1.6;white-space:pre-wrap;color:#ffb7ad;font-size:13px}
 #mode[hidden],#logout[hidden]{display:none!important}#cloudStatus{font-size:11px;color:#a2d6bc;text-align:center;padding:6px}
-</style></head><body><section id="cloudGate"><div class="cloudPanel"><h1>3PLUS</h1><h3 style="text-align:center">تسجيل الدخول</h3><p>ادخل ببريد وكلمة مرور حسابك. ما تشاركش كلمة المرور مع حد.</p><form id="cloudLogin"><label for="cloudEmail">البريد الإلكتروني</label><input type="email" id="cloudEmail" autocomplete="username" required><label for="cloudPassword">كلمة المرور</label><input type="password" id="cloudPassword" autocomplete="current-password" required><button class="btn" type="submit" id="cloudLoginBtn">تسجيل الدخول</button></form><form id="inviteSetup" hidden><label for="invitePassword">كلمة المرور الجديدة</label><input id="invitePassword" type="password" minlength="8" autocomplete="new-password" required><label for="invitePasswordConfirm">تأكيد كلمة المرور</label><input id="invitePasswordConfirm" type="password" minlength="8" autocomplete="new-password" required><button class="btn" id="invitePasswordBtn" type="submit">تفعيل الحساب والدخول</button></form><div id="cloudFeedback" role="status">جاري تجهيز الاتصال...</div></div></section><div class="shell"><header class="top"><div class="toptools"><button class="btn alt" id="back" aria-label="رجوع">‹</button><button class="btn alt" id="menu" aria-label="فتح القائمة">☰</button><button class="btn alt" id="logout" aria-label="تسجيل الخروج" title="تسجيل الخروج">⇥ <span class="labelhide">تسجيل الخروج</span></button></div><div class="brand" id="brand">3PLUS</div><div class="toptools"><button class="btn alt" id="language">العربية / EN</button><button class="btn alt" id="mode">⚙️ <span class="labelhide">3PLUS Control</span></button></div></header><div class="preview" id="testBanner" hidden>3PLUS · المشروع الجديد: لا تستخدمه لإدارة أموال حقيقية قبل اختبار الصلاحيات والتقفيل على بيانات تجريبية.</div><div id="cloudStatus" hidden>● جاري الاتصال بـ Supabase</div><div class="app"><aside class="side" id="side"></aside><main class="body" id="view"></main></div><nav id="bottomNav" aria-label="التنقل الرئيسي"></nav><div class="foot">3PLUS — البيانات المالية الأساسية متصلة بقاعدة Supabase، وبعض أدوات الكنترول ما زالت تجريبية</div></div><dialog id="modal"><h2 id="mt"></h2><div id="mb"></div><div class="actions"><button class="btn" id="save">حفظ</button><button class="btn alt" id="cancel">إلغاء</button></div><p id="merr" style="color:#ff9797"></p></dialog><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
+</style></head><body><section id="cloudGate"><div class="cloudPanel"><h1>3PLUS</h1><h3 style="text-align:center">تسجيل الدخول</h3><p>ادخل ببريد وكلمة مرور حسابك. ما تشاركش كلمة المرور مع حد.</p><form id="cloudLogin"><label for="cloudEmail">البريد الإلكتروني</label><input type="email" id="cloudEmail" autocomplete="username" required><label for="cloudPassword">كلمة المرور</label><input type="password" id="cloudPassword" autocomplete="current-password" required><button class="btn" type="submit" id="cloudLoginBtn">تسجيل الدخول</button></form><button class="btn alt" type="button" id="forgotPasswordBtn" style="width:100%;margin-top:9px">نسيت كلمة المرور؟</button><form id="forgotPasswordForm" hidden><label for="forgotEmail">الإيميل المسجّل</label><input id="forgotEmail" type="email" autocomplete="email" required><button class="btn" type="submit">إرسال رابط تغيير كلمة المرور</button><button class="btn alt" type="button" id="forgotBackBtn">رجوع لتسجيل الدخول</button></form><form id="inviteSetup" hidden><label for="invitePassword">كلمة المرور الجديدة</label><input id="invitePassword" type="password" minlength="8" autocomplete="new-password" required><label for="invitePasswordConfirm">تأكيد كلمة المرور</label><input id="invitePasswordConfirm" type="password" minlength="8" autocomplete="new-password" required><button class="btn" id="invitePasswordBtn" type="submit">تفعيل الحساب والدخول</button></form><div id="cloudFeedback" role="status">جاري تجهيز الاتصال...</div></div></section><div class="shell"><header class="top"><div class="toptools"><button class="btn alt" id="back" aria-label="رجوع">‹</button><button class="btn alt" id="menu" aria-label="فتح القائمة">☰</button><button class="btn alt" id="logout" aria-label="تسجيل الخروج" title="تسجيل الخروج">⇥ <span class="labelhide">تسجيل الخروج</span></button></div><div class="brand" id="brand">3PLUS</div><div class="toptools"><button class="btn alt" id="language">العربية / EN</button><button class="btn alt" id="mode">⚙️ <span class="labelhide">3PLUS Control</span></button></div></header><div class="preview" id="testBanner" hidden>3PLUS · المشروع الجديد: لا تستخدمه لإدارة أموال حقيقية قبل اختبار الصلاحيات والتقفيل على بيانات تجريبية.</div><div id="cloudStatus" hidden>● جاري الاتصال بـ Supabase</div><div class="app"><aside class="side" id="side"></aside><main class="body" id="view"></main></div><nav id="bottomNav" aria-label="التنقل الرئيسي"></nav><div class="foot">3PLUS — البيانات المالية الأساسية متصلة بقاعدة Supabase، وبعض أدوات الكنترول ما زالت تجريبية</div></div><dialog id="modal"><h2 id="mt"></h2><div id="mb"></div><div class="actions"><button class="btn" id="save">حفظ</button><button class="btn alt" id="cancel">إلغاء</button></div><p id="merr" style="color:#ff9797"></p></dialog><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
 'use strict';const KEY='3plus-new-cloud-ui-v1';const statuses=['تم الاستلام','تحت الفحص','انتظار قطعة غيار','جاري الإصلاح','جاهز للاستلام','تم التسليم','مرفوض'];const defaults={repairs:[],losses:[],shops:[{id:1,name:'3PLUS - المحل الرئيسي',active:true,plan:'تجريبي'}],color:'#f4c542',template:'cards',order:['dashboard','repairs','losses','accounts','daily','monthly','records','settings'],permissions:{settings:true,staff:false,opening:false,closing:true,branding:false,whatsapp:false},accounts:{'درج المحل':0,'فودافون كاش':0,'إنستا باي':0,'الخزنة':0,'معايا شخصيًا':0},movements:[],featureByShop:{},selectedShopId:1,activity:[],previewShopId:1};let state;try{state=Object.assign(structuredClone(defaults),JSON.parse(localStorage.getItem(KEY)||'{}'))}catch{state=structuredClone(defaults)}state.shops ||= structuredClone(defaults.shops);
 
 // Browser-safe project credentials. Never place service_role / sb_secret in this file.
@@ -412,7 +412,18 @@ async function enterCloud(user){
   const {data:members,error:me}=await cloud.from('shop_members').select('shop_id,role').eq('user_id',user.id).eq('active',true).limit(1);if(me)throw me; const {data,error}=members?.length?await cloud.from('shops').select('id,name,owner_id').eq('id',members[0].shop_id).limit(1):{data:[],error:null};
   if(error)throw Error('لا يمكن قراءة المحل: '+cloudError(error));
   if(!data?.length)throw Error('حسابك غير مربوط بمحل حاليًا. اطلب من مدير 3PLUS مراجعة الدعوة وربطك بالمحل.');
-  cloudShop=data[0];cloudRole=members?.[0]?.role||'owner';cloudReady=true;
+  cloudShop=data[0];cloudRole=members?.[0]?.role||'owner';
+  // Browser-installation identifier: this is NOT a hardware-attested identifier.
+  const deviceKey='3plus-browser-installation-v1';
+  let localDevice=localStorage.getItem(deviceKey);
+  if(!localDevice||!/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(localDevice)){
+   localDevice=crypto.randomUUID();localStorage.setItem(deviceKey,localDevice);
+  }
+  const deviceResult=await cloud.rpc('register_shop_device_3plus',{
+   p_shop:cloudShop.id,p_device:localDevice,p_label:'Safari / متصفح'
+  });
+  if(deviceResult.error)throw Error('تعذر تفعيل الجهاز: '+cloudError(deviceResult.error));
+  cloudReady=true;
   await refreshCloudManagement();await refreshCloudRepairs();if(cloudRole!=='employee'){await refreshCloudAccounts();await refreshCloudLosses();}document.getElementById('cloudGate').hidden=true;
   setCloudStatus('● متصل — '+cloudShop.name);
  }catch(e){cloudReady=false;cloudMessage(cloudError(e)+'\nلم يتم فتح بيانات أي محل.');await cloud.auth.signOut()}
@@ -531,7 +542,7 @@ document.querySelectorAll('[data-status]').forEach(b=>b.onclick=async()=>{
 });
 
 if($('reloadDaily'))$('reloadDaily').onclick=loadDailyReport;if($('closeCashDay'))$('closeCashDay').onclick=submitCloseCashDay;if($('reloadMonthly'))$('reloadMonthly').onclick=loadMonthlyReport;if($('reportMonth'))$('reportMonth').onchange=e=>{selectedReportMonth=e.target.value;monthlyReport=null;loadMonthlyReport()};if($('cloudTransfer'))$('cloudTransfer').onclick=openCloudTransfer;if($('cloudWithdraw'))$('cloudWithdraw').onclick=openCloudWithdrawal;if($('openingBalance'))$('openingBalance').onclick=openOpeningBalance;if($('zeroDrawer'))$('zeroDrawer').onclick=openZeroDrawer;if($('reloadAccounts'))$('reloadAccounts').onclick=async()=>{await refreshCloudAccounts();render()};
-if($('newLoss'))$('newLoss').onclick=()=>openCashOut('loss');if($('addShop'))$('addShop').onclick=()=>modal('إضافة محل للمعاينة',field('اسم المحل','name'),()=>{if(!v('name'))throw Error('اكتب اسم المحل');state.shops.push({id:Date.now(),name:v('name'),active:true,plan:'تجريبي'});persist()});document.querySelectorAll('[data-shop]').forEach(b=>b.onclick=()=>{const s=state.shops.find(s=>s.id==b.dataset.shop);s.active=!s.active;persist()});document.querySelectorAll('[data-perm]').forEach(b=>b.onchange=()=>{state.permissions[b.dataset.perm]=b.checked;persist()});document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>{state.color=b.dataset.color;persist()});if($('template'))$('template').onchange=e=>{state.template=e.target.value;persist()};document.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{let i=+b.dataset.up;if(i>0){[state.order[i-1],state.order[i]]=[state.order[i],state.order[i-1]];persist()}});document.querySelectorAll('[data-down]').forEach(b=>b.onclick=()=>{let i=+b.dataset.down;if(i<state.order.length-1){[state.order[i+1],state.order[i]]=[state.order[i],state.order[i+1]];persist()}})};$('menu').onclick=()=>$('side').classList.toggle('open');$('mode').onclick=switchControl;$('back').onclick=back;$('cancel').onclick=()=>$('modal').close();$('save').onclick=()=>{try{const result=dlgSave?.();if(result&&typeof result.then==='function'){result.catch(e=>{$('merr').textContent=cloudError(e)});return}$('modal').close()}catch(e){$('merr').textContent=e.message}};$('logout').onclick=async()=>{if(!cloud||!confirm('تسجيل الخروج من 3PLUS؟'))return;await cloud.auth.signOut();cloudReady=false;cloudIsSystemAdmin=false;control=false;page='home';cloudUser=null;cloudShop=null;cloudAccounts=[];cloudMovements=[];cloudBalances=new Map();balancesVerified=false;openingAllowed=false;state.repairs=[];document.getElementById('cloudGate').hidden=false;document.getElementById('cloudPassword').value='';cloudMessage('تم تسجيل الخروج');};$('language').onclick=()=>alert('الترجمة الإنجليزية ضمن مرحلة التنفيذ التالية.');render();
+if($('newLoss'))$('newLoss').onclick=()=>openCashOut('loss');if($('addShop'))$('addShop').onclick=()=>modal('إضافة محل للمعاينة',field('اسم المحل','name'),()=>{if(!v('name'))throw Error('اكتب اسم المحل');state.shops.push({id:Date.now(),name:v('name'),active:true,plan:'تجريبي'});persist()});document.querySelectorAll('[data-shop]').forEach(b=>b.onclick=()=>{const s=state.shops.find(s=>s.id==b.dataset.shop);s.active=!s.active;persist()});document.querySelectorAll('[data-perm]').forEach(b=>b.onchange=()=>{state.permissions[b.dataset.perm]=b.checked;persist()});document.querySelectorAll('[data-color]').forEach(b=>b.onclick=()=>{state.color=b.dataset.color;persist()});if($('template'))$('template').onchange=e=>{state.template=e.target.value;persist()};document.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{let i=+b.dataset.up;if(i>0){[state.order[i-1],state.order[i]]=[state.order[i],state.order[i-1]];persist()}});document.querySelectorAll('[data-down]').forEach(b=>b.onclick=()=>{let i=+b.dataset.down;if(i<state.order.length-1){[state.order[i+1],state.order[i]]=[state.order[i],state.order[i+1]];persist()}})};$('menu').onclick=()=>$('side').classList.toggle('open');$('mode').onclick=switchControl;$('back').onclick=back;$('cancel').onclick=()=>$('modal').close();$('save').onclick=()=>{try{const result=dlgSave?.();if(result&&typeof result.then==='function'){result.catch(e=>{$('merr').textContent=cloudError(e)});return}$('modal').close()}catch(e){$('merr').textContent=e.message}};$('logout').onclick=async()=>{if(!cloud||!confirm('تسجيل الخروج من 3PLUS؟'))return;await cloud.auth.signOut();cloudReady=false;cloudIsSystemAdmin=false;control=false;page='home';cloudUser=null;cloudShop=null;cloudAccounts=[];cloudMovements=[];cloudBalances=new Map();balancesVerified=false;openingAllowed=false;state.repairs=[];document.getElementById('cloudGate').hidden=false;document.getElementById('cloudLogin').hidden=false;document.getElementById('forgotPasswordForm').hidden=true;document.getElementById('forgotPasswordBtn').hidden=false;document.querySelector('.cloudPanel h3').textContent='تسجيل الدخول';document.getElementById('cloudPassword').value='';cloudMessage('تم تسجيل الخروج');};$('language').onclick=()=>alert('الترجمة الإنجليزية ضمن مرحلة التنفيذ التالية.');render();
 // New cloud management screens; retain all original CSS and navigation.
 let cloudMembers=[],cloudFeatures=[],cloudSettings=null,cloudSubscription=null,cloudIsSystemAdmin=false;
 async function refreshCloudManagement(){
@@ -600,6 +611,8 @@ function showInvitationPasswordSetup(kind='invite'){
  pendingInvitation=true;
  document.getElementById('cloudGate').hidden=false;
  document.getElementById('cloudLogin').hidden=true;
+ document.getElementById('forgotPasswordBtn').hidden=true;
+ document.getElementById('forgotPasswordForm').hidden=true;
  document.querySelector('.cloudPanel h3').textContent=kind==='recovery'?'إعادة تعيين كلمة المرور':'تفعيل حساب العميل';
  document.querySelector('.cloudPanel p').textContent=kind==='recovery'
   ?'اتفتح رابط استعادة كلمة المرور. اختار كلمة مرور جديدة لحسابك.'
@@ -637,6 +650,13 @@ switchControl=function(){if(cloudRole==='employee')return alert('الكنترو�
 
 // 3PLUS Control: cloud-backed, shop-scoped administration.
 let ctlShops=[],ctlSelected=null,ctlMembers=[],ctlFeatures=[],ctlDisplay=null,ctlLog=[],ctlLoading=false;
+let ctlLimits=null,ctlDevices=[];
+async function ctlLoadLimits(){
+ if(!cloudIsSystemAdmin||!ctlSelected)return;
+ const [l,d]=await Promise.all([ctlCall('control_get_shop_limits_3plus',{p_shop:ctlSelected}),ctlCall('control_list_shop_devices_3plus',{p_shop:ctlSelected})]);
+ ctlLimits=Array.isArray(l)?l[0]:l;ctlDevices=Array.isArray(d)?d:[];
+}
+
 const ctlKeys=[['receipts','طباعة الإيصالات'],['dues','تنبيهات المستحقات'],['setting_staff','إظهار إدارة الموظفين'],['setting_opening','تعديل الرصيد الافتتاحي'],['setting_balance_reset','إعادة ضبط الأرصدة'],['setting_full_reset','إعادة ضبط كاملة (غير متاحة)'],['setting_schedule','موعد بداية يوم العمل'],['inventory','مخزون قطع الغيار (يتطلب وحدة مستقلة)'],['advanced_reports','تقارير الأداء (تتطلب وحدة مستقلة)'],['employee_log','سجل الموظفين المتقدم'],['export_reports','تصدير التقارير (يتطلب وحدة مستقلة)']];
 function ctlSel(){return ctlShops.find(s=>s.shop_id===ctlSelected)}
 function ctlDate(d){return d?new Date(d).toISOString().slice(0,10):''}
@@ -696,15 +716,24 @@ async function ctlLoadSelected(){if(!ctlSelected)return;const [members,features,
  cloud.from('shop_display_settings_3plus').select('*').eq('shop_id',ctlSelected).maybeSingle(),
  ctlCall('control_list_audit_3plus',{p_shop:ctlSelected,p_limit:100})
 ]);if(features.error)throw Error(cloudError(features.error));if(display.error)throw Error(cloudError(display.error));ctlMembers=members||[];ctlFeatures=features.data||[];ctlDisplay=display.data;ctlLog=log||[]}
+const originalLimitNav=navItems;
+navItems=function(){
+ const items=originalLimitNav();
+ if(control&&cloudIsSystemAdmin&&!items.some(x=>x[0]==='limits'))items.splice(4,0,['limits','حدود الأجهزة والمستخدمين','📱']);
+ return items;
+};
+const ctlPreviousLoadSelected=ctlLoadSelected;
+ctlLoadSelected=async function(){await ctlPreviousLoadSelected();await ctlLoadLimits()};
 const ctlPrevOwnerView=ownerView;
 ownerView=function(){
  if(!cloudReady||!cloudIsSystemAdmin)return ctlPrevOwnerView();
- if(!['control','shops','users','features','subscriptions','theme','order','clientPreview','activity','updates'].includes(page))return ctlPrevOwnerView();
+ if(!['control','shops','users','features','subscriptions','limits','theme','order','clientPreview','activity','updates'].includes(page))return ctlPrevOwnerView();
  if(page==='control')return head('لوحة تحكم 3PLUS Control')+`<div class="panel"><h3>مالك المنصة</h3><p>المحلات المسجلة: ${ctlShops.length}</p><p>النشطة: ${ctlShops.filter(x=>x.is_active).length}</p><p>كل تعديل يتم على المحل المختار فقط.</p><button class="btn" id="ctlReload">تحديث الكنترول</button></div>`;
  if(!ctlShops.length)return head('3PLUS Control')+'<div class="panel">لا توجد محلات في القائمة. اضغط تحديث الكنترول.</div>';
  const selector=ctlSelect();const shop=ctlInputs();
  if(page==='shops')return head('إدارة المحلات')+`<div class="panel">${selector}${shop}<div class="actions"><button class="btn" id="ctlAddShop">إضافة محل عميل</button><button class="btn alt" id="ctlEditShop">تعديل المحل / إيقافه</button></div></div>`;
  if(page==='users')return head('المستخدمون والصلاحيات')+`<div class="panel">${selector}${shop}<h3>مستخدمو المحل</h3>${ctlMembers.map(m=>`<div class="perm"><span>${esc(m.email)}<small> — ${esc(m.role)} — ${m.active?'نشط':'موقوف'}</small></span>${m.role==='owner'?'':`<button class="btn alt" data-ctl-member="${esc(m.email)}">تعديل</button>`}</div>`).join('')}<div class="actions"><button class="btn" id="ctlAddMember">ربط مستخدم مسجل</button></div><p class="small">المالك الأصلي لا يمكن تبديل دوره. الموظف لازم يكون مسجلًا أولًا.</p></div>`;
+ if(page==='limits')return head('حدود الأجهزة والمستخدمين')+`<div class="panel">${selector}${shop}<h3>حدود الاشتراك</h3><div class="fields"><div class="field"><label>أقصى عدد أجهزة للمحل</label><input id="ctlMaxDevices" type="number" min="1" max="100" value="${esc(ctlLimits?.max_devices??3)}"></div><div class="field"><label>أقصى عدد مستخدمين (شامل المالك)</label><input id="ctlMaxUsers" type="number" min="1" max="100" value="${esc(ctlLimits?.max_users??3)}"></div></div><p class="small">المسجّل حاليًا: ${esc(ctlLimits?.registered_devices??0)} جهاز / ${esc(ctlLimits?.active_users??0)} مستخدم. لا يمكن تقليل الحد تحت العدد الحالي.</p><button class="btn" id="ctlSaveLimits">حفظ حدود المحل</button><h3 style="margin-top:22px">الأجهزة المسجّلة</h3>${ctlDevices.map(d=>`<div class="perm"><span>${esc(d.label)}<small> — آخر استخدام ${esc((d.last_seen_at||'').slice(0,16).replace('T',' '))}</small></span><button class="btn red" data-remove-device="${esc(d.device_id)}">إلغاء الجهاز</button></div>`).join('')||'<p class="small">لا توجد أجهزة مسجلة بعد.</p>'}<p class="small">إلغاء جهاز يمنع إعادة تسجيله طالما وصلت للحد. إعدادات المتصفح قد تُفقد هوية الجهاز؛ حد الأجهزة ليس بصمة هاتف مضمونة.</p></div>`;
  if(page==='subscriptions')return head('الاشتراكات')+`<div class="panel">${selector}${shop}<button class="btn" id="ctlEditSub">تعديل الاشتراك</button><p class="small">إدارة مدة وحالة الاشتراك؛ الدفع الإلكتروني غير مدمج.</p></div>`;
  if(page==='features')return head('المميزات والإعدادات')+`<div class="panel">${selector}${shop}<p class="small">الاختيارات لكل محل. بعض المميزات تتطلب بناء وحدة تشغيل مستقلة؛ تفعيلها هنا لا ينشئ الوحدة.</p>${ctlKeys.map(([k,l])=>`<div class="perm"><span>${esc(l)}</span><input type="checkbox" data-ctl-feature="${k}" ${(ctlFeatures.find(x=>x.feature_key===k)?.enabled)?'checked':''} ${k==='setting_full_reset'?'disabled':''}></div>`).join('')}</div>`;
  if(page==='theme'||page==='order')return head('التخصيص والمعاينة')+`<div class="panel">${selector}${shop}<div class="field"><label>اللون الرئيسي (HEX)</label><input id="ctlAccent" maxlength="7" value="${esc(ctlDisplay?.accent_color||'#f3c545')}"></div><div class="field"><label>نص الترحيب</label><input id="ctlWelcome" maxlength="160" value="${esc(ctlDisplay?.welcome_text||'')}"></div><button class="btn" id="ctlSaveLook">حفظ إعدادات التخصيص</button><p class="small">اللون والنص محفوظان لكل محل، وتطبيقهما في واجهة العميل يحتاج تفعيل قراءة إعدادات المظهر عند الدخول.</p></div>`;
@@ -725,6 +754,15 @@ wire=function(){ctlPrevWire();if(!control||!cloudIsSystemAdmin)return;
  if(result.invited)alert('تم إرسال دعوة للإيميل وإنشاء المحل. الأدمن لازم يفتح رسالة الدعوة عشان يجهز حسابه.');
 });
  if($('ctlEditShop'))$('ctlEditShop').onclick=()=>{const s=ctlSel();ctlForm('تعديل المحل',`<div class="fields">${field('اسم المحل','ctlEditName',s.shop_name)}${field('هاتف المحل','ctlEditPhone',s.contact_phone||'')}<div class="field"><label>الحالة</label><select id="ctlActive"><option value="true" ${s.is_active?'selected':''}>نشط</option><option value="false" ${!s.is_active?'selected':''}>موقوف</option></select></div></div>`,()=>ctlCall('control_update_client_shop_3plus',{p_shop:ctlSelected,p_name:v('ctlEditName'),p_phone:v('ctlEditPhone'),p_active:$('ctlActive').value==='true'}))};
+ if($('ctlSaveLimits'))$('ctlSaveLimits').onclick=()=>ctlRun($('ctlSaveLimits'),()=>{
+  const a=Number($('ctlMaxDevices').value),b=Number($('ctlMaxUsers').value);
+  if(!Number.isInteger(a)||!Number.isInteger(b)||a<1||b<1||a>100||b>100)throw Error('العدد لازم يكون بين 1 و100');
+  return ctlCall('control_set_shop_limits_3plus',{p_shop:ctlSelected,p_max_devices:a,p_max_users:b});
+ });
+ document.querySelectorAll('[data-remove-device]').forEach(el=>el.onclick=async()=>{
+  if(!confirm('إلغاء الجهاز ده من المحل؟ ممكن يحتاج موافقة جديدة عند الدخول مرة تانية.'))return;
+  await ctlRun(el,()=>ctlCall('control_remove_shop_device_3plus',{p_shop:ctlSelected,p_device:el.dataset.removeDevice}));
+ });
  if($('ctlEditSub'))$('ctlEditSub').onclick=()=>{const s=ctlSel();ctlForm('إدارة الاشتراك',`<div class="field"><label>الباقة</label><select id="ctlPlan">${['trial','basic','pro','premium'].map(x=>`<option value="${x}" ${x===s.plan?'selected':''}>${x}</option>`).join('')}</select></div><div class="field"><label>الحالة</label><select id="ctlStatus">${['trial','active','paused','expired'].map(x=>`<option value="${x}" ${x===s.subscription_status?'selected':''}>${x}</option>`).join('')}</select></div><div class="field"><label>البداية</label><input type="date" id="ctlStart" value="${ctlDate(s.starts_at)||ctlNowDate()}"></div><div class="field"><label>النهاية</label><input type="date" id="ctlEnd" value="${ctlDate(s.expires_at)}"></div>`,()=>ctlCall('control_set_subscription_3plus',{p_shop:ctlSelected,p_plan:$('ctlPlan').value,p_status:$('ctlStatus').value,p_start:$('ctlStart').value+'T00:00:00+03:00',p_end:$('ctlEnd').value+'T00:00:00+03:00'}))};
  const editMember=(email='',role='employee',active=true)=>ctlForm('إدارة مستخدم المحل',`${field('إيميل الحساب المسجل','ctlMemberEmail',email)}<div class="field"><label>الدور</label><select id="ctlMemberRole"><option value="employee" ${role==='employee'?'selected':''}>موظف</option><option value="admin" ${role==='admin'?'selected':''}>أدمن</option></select></div><div class="field"><label>الحالة</label><select id="ctlMemberActive"><option value="true" ${active?'selected':''}>نشط</option><option value="false" ${!active?'selected':''}>موقوف</option></select></div>`,()=>ctlAssignMemberWithInvitation({p_shop:ctlSelected,p_email:v('ctlMemberEmail'),p_role:$('ctlMemberRole').value,p_active:$('ctlMemberActive').value==='true'}));
  if($('ctlAddMember'))$('ctlAddMember').onclick=()=>editMember();document.querySelectorAll('[data-ctl-member]').forEach(el=>el.onclick=()=>{const m=ctlMembers.find(x=>x.email===el.dataset.ctlMember);if(m)editMember(m.email,m.role,m.active)});
@@ -758,7 +796,7 @@ render=function(){
  if(controlBottom)controlBottom.remove();
  // Hide protected control sections from non-platform accounts even on manual navigation.
 };
-const protectedControlPages=new Set(['control','shops','users','subscriptions','features','theme','order','clientPreview','activity','updates']);
+const protectedControlPages=new Set(['control','shops','users','subscriptions','limits','features','theme','order','clientPreview','activity','updates']);
 const verifiedGo=go;
 go=function(pageName){
  if(protectedControlPages.has(pageName)&&!cloudIsSystemAdmin)return alert('الكنترول متاح لمدير المنصة فقط');
@@ -768,6 +806,36 @@ const secureSwitchControl=switchControl;
 switchControl=function(){
  if(!cloudReady||!cloudIsSystemAdmin)return alert('3PLUS Control متاح لمدير المنصة فقط');
  return secureSwitchControl();
+};
+
+// Password reset is for existing identities only. It never creates a user or a shop.
+document.getElementById('forgotPasswordBtn').onclick=()=>{
+ document.getElementById('cloudLogin').hidden=true;
+ document.getElementById('forgotPasswordBtn').hidden=true;
+ document.getElementById('forgotPasswordForm').hidden=false;
+ document.querySelector('.cloudPanel h3').textContent='نسيت كلمة المرور؟';
+ cloudMessage('اكتب إيميل حسابك المسجّل وهيوصلك رابط لتعيين كلمة مرور جديدة.');
+};
+document.getElementById('forgotBackBtn').onclick=()=>{
+ document.getElementById('forgotPasswordForm').hidden=true;
+ document.getElementById('cloudLogin').hidden=false;
+ document.getElementById('forgotPasswordBtn').hidden=false;
+ document.querySelector('.cloudPanel h3').textContent='تسجيل الدخول';
+ cloudMessage('سجّل دخولك بإيميلك وكلمة مرورك.');
+};
+document.getElementById('forgotPasswordForm').onsubmit=async e=>{
+ e.preventDefault();
+ const form=e.currentTarget, btn=form.querySelector('button[type="submit"]');
+ const email=document.getElementById('forgotEmail').value.trim().toLowerCase();
+ if(!email)return;
+ btn.disabled=true;
+ try{
+  if(!cloud)throw Error('اتصال Supabase غير جاهز');
+  const {error}=await cloud.auth.resetPasswordForEmail(email,{redirectTo:'https://himaahmed77766-hue.github.io/3plus-test/'});
+  if(error)throw error;
+  cloudMessage('لو الإيميل مسجّل، هيوصله رابط تغيير كلمة المرور. راجع صندوق الوارد وSpam.');
+ }catch(e){cloudMessage('تعذر إرسال الرابط: '+cloudError(e))}
+ finally{btn.disabled=false}
 };
 document.getElementById('cloudLogin').onsubmit=async e=>{e.preventDefault();const b=document.getElementById('cloudLoginBtn');b.disabled=true;cloudMessage('جاري تسجيل الدخول...');try{if(!cloud)throw Error('الاتصال لم يجهز');const {data,error}=await cloud.auth.signInWithPassword({email:document.getElementById('cloudEmail').value.trim(),password:document.getElementById('cloudPassword').value});if(error)throw error;await enterCloud(data.user)}catch(err){cloudMessage('تعذر تسجيل الدخول: '+cloudError(err))}finally{b.disabled=false}};startCloud();
 </script></body></html>
