@@ -366,13 +366,45 @@ function openCloudTransfer(){
   try{await submitCloudTransfer(from,to,amount,note);$('modal').close();alert('تم تسجيل التحويل بنجاح على السيرفر')}catch(e){$('merr').textContent=cloudError(e)}finally{saveBtn.disabled=false}
  });
 }
+// Supabase sends invitation/recovery credentials in the redirect URL.
+// Read the intent BEFORE createClient consumes the URL fragment/code.
+const incomingAuthParams=new URLSearchParams(window.location.hash.replace(/^#/,''));
+const incomingAuthQuery=new URLSearchParams(window.location.search);
+const incomingAuthType=(incomingAuthParams.get('type')||incomingAuthQuery.get('type')||'').toLowerCase();
+const incomingAuthLink=['invite','recovery'].includes(incomingAuthType)
+ ||incomingAuthParams.has('access_token')&&incomingAuthType==='signup'
+ ||incomingAuthQuery.has('code');
+let authLinkSessionSeen=false;
 async function startCloud(){
  try{
   if(!window.supabase?.createClient)throw Error('مكتبة Supabase لم تُحمّل. تأكد من الإنترنت ثم حدّث الصفحة.');
   cloud=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  // Recovery is an auth event, not an ordinary login. Handle it before opening the shop.
+  cloud.auth.onAuthStateChange((event,session)=>{
+   if(event==='PASSWORD_RECOVERY'&&session?.user){
+    authLinkSessionSeen=true;
+    showInvitationPasswordSetup('recovery');
+   }else if(event==='SIGNED_IN'&&incomingAuthLink&&session?.user){
+    authLinkSessionSeen=true;
+    showInvitationPasswordSetup(incomingAuthType==='recovery'?'recovery':'invite');
+   }
+  });
   const {data,error}=await cloud.auth.getSession();if(error)throw error;
-  if(data?.session){await enterCloud(data.session.user)}else cloudMessage('سجّل بحساب الأدمن الموجود في Supabase.');
- }catch(e){cloudMessage(cloudError(e))}
+  if(incomingAuthLink){
+   if(data?.session?.user){
+    authLinkSessionSeen=true;
+    showInvitationPasswordSetup(incomingAuthType==='recovery'?'recovery':'invite');
+   }else{
+    cloudMessage('جاري التحقق من رابط الدعوة أو استعادة كلمة المرور...');
+    // A failed or expired link must not silently become a normal login.
+    const {data:identity}=await cloud.auth.getUser();
+    if(identity?.user){authLinkSessionSeen=true;showInvitationPasswordSetup(incomingAuthType==='recovery'?'recovery':'invite')}
+    else cloudMessage('تعذر تفعيل رابط كلمة المرور. اطلب رابط استعادة جديد وافتحه مرة واحدة في نفس المتصفح.');
+   }
+   return;
+  }
+  if(data?.session){await enterCloud(data.session.user)}else cloudMessage('سجّل بالبريد وكلمة المرور الخاصة بحسابك.');
+ }catch(e){cloudMessage('تعذر استقبال رابط الدخول: '+cloudError(e))}
 }
 async function enterCloud(user){
  cloudUser=user;cloudIsSystemAdmin=false;cloudMessage('جاري التأكد من المحل والصلاحيات...');
@@ -564,12 +596,15 @@ wire=function(){
 };
 // Invitation acceptance must set a password before entering a shop.
 let pendingInvitation=false;
-function showInvitationPasswordSetup(){
+function showInvitationPasswordSetup(kind='invite'){
  pendingInvitation=true;
  document.getElementById('cloudGate').hidden=false;
  document.getElementById('cloudLogin').hidden=true;
- document.querySelector('.cloudPanel h3').textContent='تفعيل حساب العميل';
- document.querySelector('.cloudPanel p').textContent='الدعوة اتقبلت. اختار كلمة مرور جديدة لحسابك، وبعدها هتدخل محلك.';
+ document.querySelector('.cloudPanel h3').textContent=kind==='recovery'?'إعادة تعيين كلمة المرور':'تفعيل حساب العميل';
+ document.querySelector('.cloudPanel p').textContent=kind==='recovery'
+  ?'اتفتح رابط استعادة كلمة المرور. اختار كلمة مرور جديدة لحسابك.'
+  :'الدعوة اتقبلت. اختار كلمة مرور جديدة لحسابك، وبعدها هتدخل محلك.';
+ document.getElementById('invitePasswordBtn').textContent=kind==='recovery'?'حفظ كلمة المرور الجديدة':'تفعيل الحساب والدخول';
  document.getElementById('inviteSetup').hidden=false;
  cloudMessage('اكتب كلمة مرور جديدة من 8 حروف على الأقل.');
 }
