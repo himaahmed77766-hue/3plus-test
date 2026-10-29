@@ -261,9 +261,9 @@ function dailyCloudView(){
  if(dailyError)return head('التقفيل اليومي')+`<div class="panel"><p style="color:#ff9797">تعذر تحميل التقفيل: ${esc(dailyError)}</p><p class="small">لا تعرض أي أرصدة تقديرية؛ شغّل ملف تحديث قاعدة البيانات أولًا.</p><button class="btn" id="reloadDaily">إعادة المحاولة</button></div>`;
  if(!dailyReport)return head('التقفيل اليومي')+'<div class="panel"><button class="btn" id="reloadDaily">تحميل حسابات اليوم من Supabase</button></div>';
  const d=dailyReport,cl=d.closed;
- return head('التقفيل اليومي','يوم العمل '+esc(d.business_day)+' · من 3 صباحًا بتوقيت القاهرة')
- +stats([['رصيد الدرج أول اليوم',fmt(d.opening_balance)],['تحصيلات اليوم في الدرج',fmt(d.receipts)],['رصيد الدرج آخر اليوم (المتوقع)',fmt(d.expected_balance)],['عدد حركات الدرج',d.movement_count+' حركة']])
- +`<div class="panel" style="margin-top:16px"><h3>مطابقة رصيد الدرج</h3>${cl?`<p>تم اعتماد التقفيل: ${esc((cl.closed_at||'').replace('T',' ').slice(0,19))}</p><p>النقد الفعلي: <strong>${fmt(cl.actual_balance)}</strong></p><p>فرق العجز أو الزيادة: <strong>${fmt(cl.difference)}</strong></p><p class="small">التقفيل محفوظ، ولا يمسح الفلوس ولا سجل الحركات.</p>`:`<p>الرصيد المتوقع شامل التحويلات والسحب والمصاريف والتسويات؛ التحصيلات تشمل حركات القبض فقط.</p><div class="field"><label>النقد اللي عدّيته فعلًا في الدرج بالجنيه</label><input type="number" min="0" step="0.01" id="cashActual" placeholder="اكتب المبلغ الفعلي"></div><p class="small">اعتماد التقفيل بيسجل الفرق فقط، ومش بيصفّر الدرج أو يعدّل الرصيد.</p><div class="actions"><button class="btn" id="closeCashDay">اعتماد تقفيل اليوم</button></div>`}<div class="actions"><button class="btn alt" id="reloadDaily">تحديث التقرير</button></div></div>`;
+ return head('التقفيل اليومي','يوم العمل '+esc(d.business_day)+' · الرصيد يُرحّل تلقائيًا لليوم التالي')
+ +stats([['رصيد الدرج أول اليوم',fmt(d.opening_balance)],['تحصيلات اليوم',fmt(d.receipts)],['تكلفة قطعة الغيار والشغل (المدفوعة)',fmt(d.repair_costs)],['مصاريف وخسائر اليوم',fmt(d.expenses_losses)],['صافي الربح المحسوب',fmt(d.net_profit)],['رصيد الدرج آخر اليوم',fmt(d.expected_balance)]])
+ +`<div class="panel" style="margin-top:16px"><h3>مطابقة رصيد الدرج</h3>${cl?`<p>تم اعتماد التقفيل: ${esc((cl.closed_at||'').replace('T',' ').slice(0,19))}</p><p>النقد الفعلي: <strong>${fmt(cl.actual_balance)}</strong></p><p>فرق العجز أو الزيادة: <strong>${fmt(cl.difference)}</strong></p><p class="small">التقفيل محفوظ، ولا يمسح الفلوس ولا سجل الحركات.</p>`:`<p>رصيد آخر اليوم يشمل كل الدخول والخروج والتحويلات. التكاليف تُحسب لما تسجّل دفعها من الصيانة، ومش بتتخصم مرتين.</p><div class="field"><label>النقد اللي عدّيته فعلًا في الدرج بالجنيه</label><input type="number" min="0" step="0.01" id="cashActual" placeholder="اكتب المبلغ الفعلي"></div><p class="small">اعتماد التقفيل بيسجل الفرق فقط، ومش بيصفّر الدرج أو يعدّل الرصيد.</p><div class="actions"><button class="btn" id="closeCashDay">اعتماد تقفيل اليوم</button></div>`}<div class="actions"><button class="btn alt" id="reloadDaily">تحديث التقرير</button></div></div>`;
 }
 function monthlyCloudView(){
  if(reportsLoading.monthly)return head('الأرباح الشهرية')+'<div class="panel">جاري حساب الأرباح من Supabase...</div>';
@@ -334,6 +334,23 @@ function openCashOut(kind='expense'){
   const accountId=$('outAccount').value,amount=Number(v('outAmount')),reason=v('outReason');
   const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تسجيل العملية...';
   try{await submitCashOut(kind,accountId,amount,reason,requestId);$('modal').close();alert('العملية اتحفظت في Supabase')}catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
+ });
+}
+async function openRepairCostPayment(){
+ const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return alert('الصيانة غير موجودة');
+ const amount=Math.round((Number(r.cost||0)+Number(r.labor||0))*100)/100;
+ if(amount<=0)return alert('الصيانة دي بدون تكلفة مسجلة');
+ if(!cloudAccounts.length)await refreshCloudAccounts();
+ const opts=cloudAccounts.map(a=>`<option value="${esc(a.id)}" ${a.account_code==='cash'?'selected':''}>${esc(a.account_name)}</option>`).join('');
+ modal('تسجيل دفع تكلفة الصيانة #'+r.id,`<div class="panel">تكلفة القطع والشغل: <strong>${fmt(amount)}</strong></div><div class="field"><label>الحساب اللي دفعت منه التكلفة فعلًا</label><select id="costPayAccount">${opts}</select></div><p class="small">سجّلها مرة واحدة فقط لو المبلغ خرج فعلًا. لو سجلته قبل كده كمصروف، متسجلوش تاني. العملية هتقلل رصيد الحساب وتظهر في تقفيل اليوم.</p>`,async()=>{
+  const a=$('costPayAccount').value;
+  if(!confirm(`هل اتدفعت ${fmt(amount)} فعلًا من الحساب المختار ولم تتسجل كمصروف قبل كده؟`))return;
+  const btn=$('save');btn.disabled=true;$('merr').textContent='جاري تسجيل تكلفة الصيانة...';
+  try{
+   const {error}=await cloud.rpc('pay_repair_cost_3plus',{p_repair_id:requireCloudUUID(r),p_account_id:a});
+   if(error)throw error;
+   await refreshCloudAccounts();await loadDailyReport();$('modal').close();alert('اتسجل دفع تكلفة الصيانة مرة واحدة في Supabase');
+  }catch(e){$('merr').textContent=cloudError(e)}finally{btn.disabled=false}
  });
 }
 function cloudAccountsView(){
@@ -423,7 +440,7 @@ function wizardView(){
 }
 function saveWizardFields(){document.querySelectorAll('[id^="w_"]').forEach(el=>wizardData[el.id.slice(2)]=el.value)}
 function profit(r){return (+r.price||0)-(+r.cost||0)-(+r.labor||0)}
-function repairDetail(){const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return '<p>الصيانة غير موجودة</p>';return head('تفاصيل الصيانة #'+r.id)+`<div class="panel"><div class="flex"><h3>${esc(r.device)}</h3><span class="status">${esc(r.status)}</span></div><p>العميل: ${esc(r.client)}</p><p>الهاتف: ${esc(r.phone)}</p><p>العطل: ${esc(r.fault)}</p><p>سعر الصيانة للعميل: ${fmt(r.price)}</p><p>تكلفة الجملة / القطعة: ${fmt(r.cost||0)}</p><p>تكلفة الشغل الإضافية: ${fmt(r.labor||0)}</p><p>الربح المتوقع: <strong>${fmt(profit(r))}</strong></p><p>العربون: ${fmt(r.paid)} ${r.paidAccount?' — '+esc(r.paidAccount):''}</p><p>المتبقي: ${fmt((+r.price||0)-(+r.paid||0))}</p><div class="actions"><button class="btn" id="collectRepair" >+ تحصيل دفعة</button><button class="btn" id="changeStatus">تغيير الحالة</button><button class="btn alt" id="editExisting">تعديل البيانات</button><button class="btn alt" id="waCustomer">رسالة واتساب</button>${featureEnabled('receipts')?`<button class="btn alt" id="receiptIn">إيصال استلام</button><button class="btn alt" id="receiptOut">إيصال تسليم</button>`:''}</div></div>`}
+function repairDetail(){const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return '<p>الصيانة غير موجودة</p>';return head('تفاصيل الصيانة #'+r.id)+`<div class="panel"><div class="flex"><h3>${esc(r.device)}</h3><span class="status">${esc(r.status)}</span></div><p>العميل: ${esc(r.client)}</p><p>الهاتف: ${esc(r.phone)}</p><p>العطل: ${esc(r.fault)}</p><p>سعر الصيانة للعميل: ${fmt(r.price)}</p><p>تكلفة الجملة / القطعة: ${fmt(r.cost||0)}</p><p>تكلفة الشغل الإضافية: ${fmt(r.labor||0)}</p><p>الربح المتوقع: <strong>${fmt(profit(r))}</strong></p><p>العربون: ${fmt(r.paid)} ${r.paidAccount?' — '+esc(r.paidAccount):''}</p><p>المتبقي: ${fmt((+r.price||0)-(+r.paid||0))}</p><div class="actions"><button class="btn" id="collectRepair" >+ تحصيل دفعة</button><button class="btn alt" id="payRepairCost">تسجيل دفع تكلفة القطع والشغل</button><button class="btn" id="changeStatus">تغيير الحالة</button><button class="btn alt" id="editExisting">تعديل البيانات</button><button class="btn alt" id="waCustomer">رسالة واتساب</button>${featureEnabled('receipts')?`<button class="btn alt" id="receiptIn">إيصال استلام</button><button class="btn alt" id="receiptOut">إيصال تسليم</button>`:''}</div></div>`}
 function statusView(){const r=state.repairs.find(x=>x.id===selectedRepair);if(!r)return '';return head('تغيير حالة الصيانة #'+r.id)+`<div class="panel">${statuses.map((s,i)=>`<button class="statuschoice ${r.status===s?'on':''}" data-status="${i}"><span>${esc(s)}</span><span>${r.status===s?'✓':'○'}</span></button>`).join('')}</div>`}
 ;function render(){document.documentElement.style.setProperty('--gold',state.color);$('side').innerHTML=`<div class="brand" style="font-size:25px;text-align:center">${control?'3PLUS Control':'3PLUS'}</div>${navItems().filter(x=>control||x[0]!=='settings'||state.permissions.settings).map(([id,label,ico])=>`<button class="navbtn ${page===id?'active':''}" data-page="${id}"><span>${ico}</span>${label}</button>`).join('')}`;document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));$('view').innerHTML=control?`<div class="controlReturn"><button class="btn alt" id="returnShop">↩ رجوع</button></div>`+ownerView():shopView();
  const items=control?[['control','الرئيسية','⌂'],['shops','المحلات','▣'],['users','المستخدمون','♙'],['theme','التخصيص','◈'],['features','المميزات','⚙']]:[['home','الرئيسية','⌂'],['repairs','الصيانة','🔧'],['accounts','الحسابات','▤'],['controlDirect','الكنترول','⚙'],['more','المزيد','☰']];
@@ -466,7 +483,7 @@ if($('shopFeatureSelect'))$('shopFeatureSelect').onchange=e=>{state.selectedShop
 document.querySelectorAll('[data-feature]').forEach(b=>b.onchange=()=>{shopFeatures(state.selectedShopId)[b.dataset.feature]=b.checked;activityLog('تعديل ميزة',b.dataset.feature+' — محل #'+state.selectedShopId+' — '+(b.checked?'تفعيل':'إيقاف'));persist()});
 if($('previewSelected'))$('previewSelected').onclick=()=>{state.previewShopId=+state.selectedShopId;go('clientPreview')};
 if($('previewShopSelect'))$('previewShopSelect').onchange=e=>{state.previewShopId=+e.target.value;persist()};
-if($('changeStatus'))$('changeStatus').onclick=()=>go('repairStatus');if($('collectRepair'))$('collectRepair').onclick=openRepairCollection;if($('newExpense'))$('newExpense').onclick=()=>openCashOut('expense');
+if($('changeStatus'))$('changeStatus').onclick=()=>go('repairStatus');if($('collectRepair'))$('collectRepair').onclick=openRepairCollection;if($('payRepairCost'))$('payRepairCost').onclick=openRepairCostPayment;if($('newExpense'))$('newExpense').onclick=()=>openCashOut('expense');
 if($('editExisting'))$('editExisting').onclick=()=>editRepair(selectedRepair);
 if($('waCustomer'))$('waCustomer').onclick=()=>{const r=state.repairs.find(x=>x.id===selectedRepair);const digits=(r.phone||'').replace(/\D/g,'');if(!/^01\d{9}$/.test(digits))return alert('رقم الهاتف غير صالح لواتساب المصري');window.open('https://wa.me/20'+digits.slice(1)+'?text='+encodeURIComponent('أهلاً '+r.client+'، حالة صيانة جهازك رقم #'+r.id+': '+r.status),'_blank')};
 document.querySelectorAll('[data-status]').forEach(b=>b.onclick=async()=>{
