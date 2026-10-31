@@ -1631,8 +1631,7 @@ function plusDownloadDiagnostics(){
 }
 const plusStage14ShopView=shopView;
 shopView=function(){return page==='plusDiagnostics'?plusDiagPage():plusStage14ShopView()};
-const plusStage14NavItems=navItems;
-navItems=function(){const items=plusStage14NavItems();if(!control&&cloudRole!=='employee')items.push(['plusDiagnostics','فحص جاهزية البرنامج','🧪']);return items};
+
 const plusStage14Wire=wire;
 wire=function(){plusStage14Wire.apply(this,arguments);if($('plusDiagRun'))$('plusDiagRun').onclick=plusRunDiagnostics;if($('plusDiagExport'))$('plusDiagExport').onclick=plusDownloadDiagnostics};
 
@@ -1644,27 +1643,5 @@ wire=function(){plusStage14Wire.apply(this,arguments);if($('plusDiagRun'))$('plu
 #view input:not([type=hidden]),#view select,#view textarea,#view button{position:relative;pointer-events:auto;touch-action:manipulation}
 #view input:not([type=hidden]),#view select,#view textarea{z-index:2;-webkit-user-select:text;user-select:text}
 </style>
-<details id="plusTouchProbe"><summary>فحص لمس الخانات</summary><pre id="plusTouchLog">المس أي خانة، وهنا هتظهر نتيجة اللمس.</pre></details>
-<script>
-(function(){
- var log=document.getElementById('plusTouchLog');
- var last='لم يتم لمس خانة بعد';
- function describe(t){if(!t)return 'unknown';return (t.tagName||'node').toLowerCase()+'#'+(t.id||'')+'.'+(typeof t.className==='string'?t.className.slice(0,35):'')}
- function report(e){
-  var t=e.target;
-  if(t.closest&&t.closest('#plusTouchProbe'))return;
-  var x=(e.changedTouches&&e.changedTouches[0]?.clientX)??e.clientX;
-  var y=(e.changedTouches&&e.changedTouches[0]?.clientY)??e.clientY;
-  var hit=Number.isFinite(x)&&Number.isFinite(y)?document.elementFromPoint(x,y):null;
-  var target=t.closest?.('input,textarea,select,button')||null;
-  var over=hit?.closest?.('input,textarea,select,button')||null;
-  last='event: '+e.type+'\ntarget: '+describe(t)+'\nhit: '+describe(hit)+'\ncontrol: '+describe(target||over)+'\nfocused: '+describe(document.activeElement);
-  log.textContent=last;
- }
- document.addEventListener('touchstart',report,{capture:true,passive:true});
- document.addEventListener('click',report,true);
- document.addEventListener('focusin',function(e){if(e.target.matches?.('input,select,textarea'))log.textContent=last+'\nFOCUS OK: '+describe(e.target)},true);
- window.addEventListener('error',function(e){log.textContent='JS Error: '+String(e.message).slice(0,130)+'\n'+last});
-})();
-</script>
+
 </body></html>
